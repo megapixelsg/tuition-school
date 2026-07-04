@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parent Portal — Payments</title>
+  <link rel="stylesheet" href="../assets/tailwind.css" />
+  <script defer src="../assets/app.js"></script>
+</head>
+<body class="min-h-screen bg-slate-200 flex items-center justify-center p-4 sm:p-8" style="background-image: radial-gradient(ellipse at top, #e2e8f0, #cbd5e1);">
+  <div class="w-full max-w-sm bg-slate-50 rounded-[2rem] shadow-2xl border-[6px] border-slate-800 overflow-hidden flex flex-col" style="height: min(88vh, 780px);">
+    <div class="bg-indigo-600 text-white px-5 pt-6 pb-5">
+      <div class="font-semibold">Payments</div>
+      <div class="text-xs text-indigo-200 mt-0.5">Invoices, receipts &amp; lesson quota</div>
+    </div>
+
+    <div class="flex-1 overflow-y-auto p-4 space-y-4">
+      <!-- Balance card -->
+      <div class="bg-white rounded-xl border border-slate-200 p-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="text-xs text-slate-500">Outstanding balance</div>
+            <div class="text-2xl font-semibold text-emerald-600 mt-0.5">S$0.00</div>
+          </div>
+          <div class="text-right">
+            <div class="text-xs text-slate-500">Lesson quota (Jul)</div>
+            <div class="text-sm font-semibold text-slate-900 mt-1">7 of 8 used</div>
+            <div class="mt-1 h-1.5 w-24 bg-slate-100 rounded-full ml-auto"><div class="h-1.5 rounded-full bg-[#2a78d6]" style="width:87.5%"></div></div>
+          </div>
+        </div>
+        <p class="mt-3 text-[11px] text-slate-400">Next invoice will be generated automatically when the 8th lesson is attended.</p>
+      </div>
+
+      <!-- Upcoming invoice -->
+      <div class="bg-white rounded-xl border border-slate-200 p-4">
+        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Upcoming</span>
+        <div class="mt-2 flex items-center justify-between">
+          <div>
+            <div class="text-sm font-medium text-slate-800">INV-2026-0712 · Aug cycle</div>
+            <div class="text-[11px] text-slate-400">8 lessons · S$392.40 incl. 9% GST · due 01 Aug</div>
+          </div>
+          <button class="text-xs bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg px-3 py-2" onclick="proto.toast('Payment gateway not wired in this prototype (PayNow / card in the real app)')">Pay now</button>
+        </div>
+      </div>
+
+      <!-- History -->
+      <div class="bg-white rounded-xl border border-slate-200 p-4">
+        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wide">History</span>
+        <ul class="mt-2 divide-y divide-slate-100">
+          <li class="py-2.5 flex items-center justify-between">
+            <div><div class="text-sm text-slate-800">INV-2026-0642 · Jun cycle</div><div class="text-[11px] text-slate-400">S$392.40 · paid 03 Jul · PayNow</div></div>
+            <button class="text-[11px] text-indigo-600" onclick="proto.stub(event)">Receipt ⬇</button>
+          </li>
+          <li class="py-2.5 flex items-center justify-between">
+            <div><div class="text-sm text-slate-800">INV-2026-0511 · May cycle</div><div class="text-[11px] text-slate-400">S$392.40 · paid 30 Apr · Card</div></div>
+            <button class="text-[11px] text-indigo-600" onclick="proto.stub(event)">Receipt ⬇</button>
+          </li>
+          <li class="py-2.5 flex items-center justify-between">
+            <div><div class="text-sm text-slate-800">Holiday Intensive deposit</div><div class="text-[11px] text-slate-400">S$109.00 · paid 18 Apr · PayNow</div></div>
+            <button class="text-[11px] text-indigo-600" onclick="proto.stub(event)">Receipt ⬇</button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-4 text-xs text-indigo-900">
+        🔔 Payment reminders arrive here as push notifications 3 days before the due date. You can also enable email and WhatsApp reminders in settings.
+      </div>
+    </div>
+
+    <div class="bg-white border-t border-slate-200 grid grid-cols-5 text-center text-[10px]">
+      <a href="home.html" class="py-2.5 text-slate-400"><div class="text-base">🏠</div>Home</a>
+      <a href="checkin.html" class="py-2.5 text-slate-400"><div class="text-base">📍</div>Check-in</a>
+      <a href="progress.html" class="py-2.5 text-slate-400"><div class="text-base">📈</div>Progress</a>
+      <a href="payments.html" class="py-2.5 text-indigo-600 font-semibold"><div class="text-base">💳</div>Payments</a>
+      <a href="announcements.html" class="py-2.5 text-slate-400"><div class="text-base">🔔</div>News</a>
+    </div>
+  </div>
+</body>
+</html>

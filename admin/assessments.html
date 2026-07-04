@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assessments — EduCentre SMS</title>
+  <link rel="stylesheet" href="../assets/tailwind.css" />
+  <script defer src="../assets/app.js"></script>
+</head>
+<body class="bg-slate-100" data-active="assessments" data-title="Assessments &amp; Level Progression" data-subtitle="Configurable cycles · automated eligibility · manual overrides">
+<div class="flex min-h-screen">
+  <aside id="sidebar" class="w-60 shrink-0 bg-slate-900 flex flex-col sticky top-0 h-screen"></aside>
+  <div class="flex-1 flex flex-col min-w-0">
+    <header id="topbar" class="sticky top-0 z-20"></header>
+    <main class="p-6 space-y-4">
+
+      <!-- Cycle config -->
+      <div class="bg-white rounded-xl border border-slate-200 p-5">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="font-semibold text-slate-900">Assessment cycles</h2>
+            <p class="text-xs text-slate-500">Eligibility rules run automatically against attendance &amp; lesson history</p>
+          </div>
+          <button class="text-sm bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg px-4 py-2" onclick="proto.stub(event)">+ New cycle</button>
+        </div>
+        <div class="mt-4 grid md:grid-cols-3 gap-3">
+          <div class="border border-indigo-200 bg-indigo-50/50 rounded-lg p-4">
+            <div class="flex items-center justify-between"><span class="text-sm font-semibold text-slate-800">August 2026 cycle</span><span class="text-xs px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-700">Upcoming · 15 Aug</span></div>
+            <p class="text-xs text-slate-500 mt-1">Rule: ≥ 16 lessons since last promotion · ≥ 85% term attendance · teacher endorsement</p>
+            <div class="mt-3 text-xs text-slate-600"><span class="font-medium text-slate-900">57 auto-eligible</span> · 4 overrides pending · all branches</div>
+          </div>
+          <div class="border border-slate-200 rounded-lg p-4">
+            <div class="flex items-center justify-between"><span class="text-sm font-semibold text-slate-800">May 2026 cycle</span><span class="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">Completed</span></div>
+            <p class="text-xs text-slate-500 mt-1">61 assessed · 54 promoted · 7 retained</p>
+            <div class="mt-3 text-xs text-indigo-600"><a href="#" onclick="proto.stub(event)" class="hover:underline">View results →</a></div>
+          </div>
+          <div class="border border-slate-200 rounded-lg p-4">
+            <div class="flex items-center justify-between"><span class="text-sm font-semibold text-slate-800">January 2026 cycle</span><span class="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">Completed</span></div>
+            <p class="text-xs text-slate-500 mt-1">48 assessed · 45 promoted · 3 retained</p>
+            <div class="mt-3 text-xs text-indigo-600"><a href="#" onclick="proto.stub(event)" class="hover:underline">View results →</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Eligibility list -->
+      <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+        <div class="p-4 border-b border-slate-100 flex flex-wrap items-center gap-3">
+          <h2 class="font-semibold text-slate-900">Eligibility — August 2026 cycle</h2>
+          <span class="text-xs px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">auto-detected nightly</span>
+          <div class="ml-auto flex gap-2">
+            <button class="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 text-slate-600 hover:bg-slate-50" onclick="proto.stub(event)">Notify parents of eligible students</button>
+            <button class="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 text-slate-600 hover:bg-slate-50" onclick="proto.stub(event)">Export list</button>
+          </div>
+        </div>
+        <table class="w-full text-sm">
+          <thead><tr class="text-left text-xs text-slate-500 border-b border-slate-200 bg-slate-50">
+            <th class="px-4 py-3 font-medium">Student</th><th class="px-4 py-3 font-medium">Current → target level</th><th class="px-4 py-3 font-medium">Lessons since promo</th>
+            <th class="px-4 py-3 font-medium">Attendance</th><th class="px-4 py-3 font-medium">Eligibility</th><th class="px-4 py-3 font-medium">Materials</th><th></th>
+          </tr></thead>
+          <tbody class="divide-y divide-slate-100 text-slate-700">
+            <tr class="hover:bg-slate-50">
+              <td class="px-4 py-3"><a href="student-profile.html" class="font-medium text-slate-800 hover:text-indigo-600">Chloe Rahman</a><div class="text-xs text-slate-500">Bukit Timah</div></td>
+              <td class="px-4 py-3">P5 Advanced → P6 Foundation</td><td class="px-4 py-3">18 / 16 ✓</td><td class="px-4 py-3">96% ✓</td>
+              <td class="px-4 py-3"><span class="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">Auto-eligible</span></td>
+              <td class="px-4 py-3 text-xs">P6 workbook + certificate <span class="text-emerald-600">· in stock</span></td>
+              <td class="px-4 py-3 text-right"><button class="text-xs text-slate-500 hover:text-indigo-600" onclick="proto.stub(event)">Override ▾</button></td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="px-4 py-3"><a href="student-profile.html" class="font-medium text-slate-800 hover:text-indigo-600">Marcus Tan</a><div class="text-xs text-slate-500">Tampines</div></td>
+              <td class="px-4 py-3">Sec 2 → Sec 3 (Express)</td><td class="px-4 py-3">17 / 16 ✓</td><td class="px-4 py-3">88% ✓</td>
+              <td class="px-4 py-3"><span class="text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-700">Hold — fees overdue</span></td>
+              <td class="px-4 py-3 text-xs">Sec 3 kit <span class="text-amber-600">· low stock</span></td>
+              <td class="px-4 py-3 text-right"><button class="text-xs text-slate-500 hover:text-indigo-600" onclick="proto.stub(event)">Override ▾</button></td>
+            </tr>
+            <tr class="hover:bg-slate-50 bg-amber-50/40">
+              <td class="px-4 py-3"><a href="student-profile.html" class="font-medium text-slate-800 hover:text-indigo-600">Grace Ong</a><div class="text-xs text-slate-500">Tampines</div></td>
+              <td class="px-4 py-3">P6 Foundation → P6 Advanced</td><td class="px-4 py-3">16 / 16 ✓</td><td class="px-4 py-3 text-amber-700">79% ✗</td>
+              <td class="px-4 py-3"><span class="text-xs px-2 py-0.5 rounded-full bg-violet-100 text-violet-700">Manual override — approved</span><div class="text-[11px] text-slate-500 mt-0.5">by Branch Mgr: "medical absences, teacher endorses"</div></td>
+              <td class="px-4 py-3 text-xs">P6A workbook <span class="text-emerald-600">· in stock</span></td>
+              <td class="px-4 py-3 text-right"><button class="text-xs text-slate-500 hover:text-indigo-600" onclick="proto.stub(event)">Override ▾</button></td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="px-4 py-3"><a href="student-profile.html" class="font-medium text-slate-800 hover:text-indigo-600">Ethan Wong</a><div class="text-xs text-slate-500">Bukit Timah</div></td>
+              <td class="px-4 py-3">P5 Foundation → P5 Advanced</td><td class="px-4 py-3">12 / 16 ✗</td><td class="px-4 py-3">91% ✓</td>
+              <td class="px-4 py-3"><span class="text-xs px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">Not yet eligible</span></td>
+              <td class="px-4 py-3 text-xs text-slate-400">—</td>
+              <td class="px-4 py-3 text-right"><button class="text-xs text-slate-500 hover:text-indigo-600" onclick="proto.stub(event)">Override ▾</button></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="p-4 border-t border-slate-100 bg-indigo-50/40 text-xs text-indigo-900 flex items-center gap-2">
+          ⚙ <span><span class="font-medium">Assessment → inventory automation:</span> confirming a promotion auto-deducts the target level's workbook/kit and a certificate from the student's branch stock, and queues the promotion fee on the next invoice.</span>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

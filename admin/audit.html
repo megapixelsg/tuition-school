@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audit Log — EduCentre SMS</title>
+  <link rel="stylesheet" href="../assets/tailwind.css" />
+  <script defer src="../assets/app.js"></script>
+</head>
+<body class="bg-slate-100" data-active="audit" data-title="Audit Log" data-subtitle="Immutable trail for payments, assessments and inventory · Super Admin only">
+<div class="flex min-h-screen">
+  <aside id="sidebar" class="w-60 shrink-0 bg-slate-900 flex flex-col sticky top-0 h-screen"></aside>
+  <div class="flex-1 flex flex-col min-w-0">
+    <header id="topbar" class="sticky top-0 z-20"></header>
+    <main class="p-6 space-y-4">
+
+      <div class="bg-white rounded-xl border border-slate-200 p-4 flex flex-wrap items-center gap-3">
+        <select class="text-sm border border-slate-300 rounded-lg px-2.5 py-2 text-slate-600" onchange="proto.toast('Filters are visual only')">
+          <option>All categories</option><option>Payments</option><option>Assessments</option><option>Inventory</option><option>Access &amp; roles</option><option>Data changes</option>
+        </select>
+        <select class="text-sm border border-slate-300 rounded-lg px-2.5 py-2 text-slate-600" onchange="proto.toast('Filters are visual only')">
+          <option>All users</option><option>Jerry Tan (Super Admin)</option><option>Mabel Chua (Branch Mgr)</option><option>Mr. Desmond Ho (Teacher)</option>
+        </select>
+        <input type="date" class="text-sm border border-slate-300 rounded-lg px-2.5 py-2 text-slate-600">
+        <button class="ml-auto text-xs border border-slate-300 rounded-lg px-2.5 py-2 text-slate-600 hover:bg-slate-50" onclick="proto.stub(event)">⬇ Export log (CSV)</button>
+      </div>
+
+      <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+        <table class="w-full text-sm">
+          <thead><tr class="text-left text-xs text-slate-500 border-b border-slate-200 bg-slate-50">
+            <th class="px-4 py-3 font-medium">Timestamp</th><th class="px-4 py-3 font-medium">User · role</th><th class="px-4 py-3 font-medium">Category</th><th class="px-4 py-3 font-medium">Action</th><th class="px-4 py-3 font-medium">Source</th>
+          </tr></thead>
+          <tbody class="divide-y divide-slate-100 text-slate-700 font-mono text-xs">
+            <tr><td class="px-4 py-2.5 text-slate-500">2026-07-03 09:14:22</td><td class="px-4 py-2.5">system · auto</td><td class="px-4 py-2.5"><span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-sans">Payment</span></td><td class="px-4 py-2.5 font-sans">PayNow S$392.40 matched to INV-2026-0642 · receipt emailed</td><td class="px-4 py-2.5 text-slate-400">gateway webhook</td></tr>
+            <tr><td class="px-4 py-2.5 text-slate-500">2026-07-02 17:31:05</td><td class="px-4 py-2.5">M. Chua · Branch Mgr</td><td class="px-4 py-2.5"><span class="px-2 py-0.5 rounded-full bg-violet-100 text-violet-700 font-sans">Assessment</span></td><td class="px-4 py-2.5 font-sans">Manual override APPROVED — Grace Ong, Aug cycle (reason recorded)</td><td class="px-4 py-2.5 text-slate-400">web · 203.0.113.24</td></tr>
+            <tr><td class="px-4 py-2.5 text-slate-500">2026-07-01 09:30:41</td><td class="px-4 py-2.5">system · auto</td><td class="px-4 py-2.5"><span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 font-sans">Inventory</span></td><td class="px-4 py-2.5 font-sans">P6 English workbook (Woodlands) reached 0 — alert raised to Branch Mgr</td><td class="px-4 py-2.5 text-slate-400">rule engine</td></tr>
+            <tr><td class="px-4 py-2.5 text-slate-500">2026-06-30 16:02:13</td><td class="px-4 py-2.5">D. Ho · Teacher</td><td class="px-4 py-2.5"><span class="px-2 py-0.5 rounded-full bg-sky-100 text-sky-700 font-sans">Attendance</span></td><td class="px-4 py-2.5 font-sans">P5 Math (Tue 4:30pm) attendance saved — 13 present, 1 late, 1 absent</td><td class="px-4 py-2.5 text-slate-400">web · 203.0.113.87</td></tr>
+            <tr><td class="px-4 py-2.5 text-slate-500">2026-06-28 11:18:56</td><td class="px-4 py-2.5">J. Tan · Super Admin</td><td class="px-4 py-2.5"><span class="px-2 py-0.5 rounded-full bg-rose-100 text-rose-700 font-sans">Access</span></td><td class="px-4 py-2.5 font-sans">Role changed: intern account downgraded Teacher → read-only</td><td class="px-4 py-2.5 text-slate-400">web · 203.0.113.5</td></tr>
+            <tr><td class="px-4 py-2.5 text-slate-500">2026-06-27 14:44:30</td><td class="px-4 py-2.5">M. Chua · Branch Mgr</td><td class="px-4 py-2.5"><span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 font-sans">Inventory</span></td><td class="px-4 py-2.5 font-sans">Transfer approved: 5× polo tee (M) Tampines → Woodlands</td><td class="px-4 py-2.5 text-slate-400">web · 203.0.113.24</td></tr>
+            <tr><td class="px-4 py-2.5 text-slate-500">2026-06-25 16:45:02</td><td class="px-4 py-2.5">system · auto</td><td class="px-4 py-2.5"><span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-sans">Payment</span></td><td class="px-4 py-2.5 font-sans">Invoice INV-2026-0642 auto-generated (lesson counter 8/8, Chloe Rahman)</td><td class="px-4 py-2.5 text-slate-400">rule engine</td></tr>
+          </tbody>
+        </table>
+        <div class="px-4 py-3 border-t border-slate-100 text-xs text-slate-500">Showing 7 of 12,408 entries · retention: 7 years (finance), 2 years (access)</div>
+      </div>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

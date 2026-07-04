@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parent Portal — Home</title>
+  <link rel="stylesheet" href="../assets/tailwind.css" />
+  <script defer src="../assets/app.js"></script>
+</head>
+<body class="min-h-screen bg-slate-200 flex items-center justify-center p-4 sm:p-8" style="background-image: radial-gradient(ellipse at top, #e2e8f0, #cbd5e1);">
+  <!-- Phone frame -->
+  <div class="w-full max-w-sm bg-slate-50 rounded-[2rem] shadow-2xl border-[6px] border-slate-800 overflow-hidden flex flex-col" style="height: min(88vh, 780px);">
+    <!-- App header -->
+    <div class="bg-indigo-600 text-white px-5 pt-6 pb-5">
+      <div class="flex items-center justify-between">
+        <div>
+          <div class="text-xs text-indigo-200">Good afternoon 👋</div>
+          <div class="font-semibold">Mrs. Nadia Rahman</div>
+        </div>
+        <a href="../index.html" class="text-xs bg-white/15 rounded-full px-2.5 py-1">Exit demo</a>
+      </div>
+      <div class="mt-4 bg-white/10 rounded-xl p-3 flex items-center gap-3">
+        <span class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center font-semibold">CR</span>
+        <div class="flex-1">
+          <div class="text-sm font-medium">Chloe Rahman</div>
+          <div class="text-[11px] text-indigo-200">P5 · Bukit Timah Centre</div>
+        </div>
+        <button class="text-[11px] bg-white/15 rounded-full px-2 py-1" onclick="proto.toast('Child switcher — visual only')">Switch ▾</button>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="flex-1 overflow-y-auto p-4 space-y-4">
+      <!-- Next class -->
+      <div class="bg-white rounded-xl border border-slate-200 p-4">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Next class</span>
+          <a href="checkin.html" class="text-xs text-indigo-600 font-medium">Check in →</a>
+        </div>
+        <div class="mt-2 flex items-center gap-3">
+          <div class="w-11 h-11 rounded-lg bg-blue-50 text-[#2a78d6] flex items-center justify-center text-lg">➗</div>
+          <div>
+            <div class="text-sm font-semibold text-slate-800">P5 Mathematics</div>
+            <div class="text-xs text-slate-500">Tue 7 Jul · 4:30–6:00pm · Rm 1 · Mr. Desmond Ho</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick stats -->
+      <div class="grid grid-cols-3 gap-3">
+        <a href="progress.html" class="bg-white rounded-xl border border-slate-200 p-3 text-center"><div class="text-lg font-semibold text-slate-900">96%</div><div class="text-[10px] text-slate-500">Attendance</div></a>
+        <a href="progress.html" class="bg-white rounded-xl border border-slate-200 p-3 text-center"><div class="text-lg font-semibold text-slate-900">7/8</div><div class="text-[10px] text-slate-500">Lessons used</div></a>
+        <a href="payments.html" class="bg-white rounded-xl border border-slate-200 p-3 text-center"><div class="text-lg font-semibold text-emerald-600">S$0</div><div class="text-[10px] text-slate-500">Outstanding</div></a>
+      </div>
+
+      <!-- Announcements preview -->
+      <div class="bg-white rounded-xl border border-slate-200 p-4">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Announcements</span>
+          <a href="announcements.html" class="text-xs text-indigo-600 font-medium">All →</a>
+        </div>
+        <ul class="mt-2 space-y-2.5">
+          <li class="flex gap-2.5">
+            <span class="text-base">☀️</span>
+            <div>
+              <div class="text-sm text-slate-800 font-medium">June Holiday Intensive — last 3 places for P5!</div>
+              <div class="text-[11px] text-slate-400">Yesterday · <a href="announcements.html" class="text-indigo-600">Sign up in app</a></div>
+            </div>
+          </li>
+          <li class="flex gap-2.5">
+            <span class="text-base">📝</span>
+            <div>
+              <div class="text-sm text-slate-800 font-medium">Chloe is eligible for the August assessment 🎉</div>
+              <div class="text-[11px] text-slate-400">2 days ago · assessment on 15 Aug, 10:00am</div>
+            </div>
+          </li>
+          <li class="flex gap-2.5">
+            <span class="text-base">🏫</span>
+            <div>
+              <div class="text-sm text-slate-800 font-medium">Centre closed 9 Aug (National Day)</div>
+              <div class="text-[11px] text-slate-400">Last week · make-up slots available</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Recent activity -->
+      <div class="bg-white rounded-xl border border-slate-200 p-4">
+        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Recent activity</span>
+        <ul class="mt-2 space-y-2 text-xs text-slate-600">
+          <li>✅ Attended P5 Math — Tue 30 Jun (marked by teacher)</li>
+          <li>💳 Invoice INV-2026-0642 paid via PayNow — 03 Jul</li>
+          <li>🏅 Milestone added: Top of class, Term 1 2026</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom tab bar -->
+    <div class="bg-white border-t border-slate-200 grid grid-cols-5 text-center text-[10px]">
+      <a href="home.html" class="py-2.5 text-indigo-600 font-semibold"><div class="text-base">🏠</div>Home</a>
+      <a href="checkin.html" class="py-2.5 text-slate-400"><div class="text-base">📍</div>Check-in</a>
+      <a href="progress.html" class="py-2.5 text-slate-400"><div class="text-base">📈</div>Progress</a>
+      <a href="payments.html" class="py-2.5 text-slate-400"><div class="text-base">💳</div>Payments</a>
+      <a href="announcements.html" class="py-2.5 text-slate-400"><div class="text-base">🔔</div>News</a>
+    </div>
+  </div>
+</body>
+</html>

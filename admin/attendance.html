@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attendance — EduCentre SMS</title>
+  <link rel="stylesheet" href="../assets/tailwind.css" />
+  <script defer src="../assets/app.js"></script>
+</head>
+<body class="bg-slate-100" data-active="attendance" data-title="Attendance Marking" data-subtitle="Teacher web marking · lessons feed the billing counter automatically">
+<div class="flex min-h-screen">
+  <aside id="sidebar" class="w-60 shrink-0 bg-slate-900 flex flex-col sticky top-0 h-screen"></aside>
+  <div class="flex-1 flex flex-col min-w-0">
+    <header id="topbar" class="sticky top-0 z-20"></header>
+    <main class="p-6 space-y-4">
+
+      <div class="bg-white rounded-xl border border-slate-200 p-4 flex flex-wrap items-center gap-3">
+        <select class="text-sm border border-slate-300 rounded-lg px-2.5 py-2 text-slate-700 font-medium" onchange="proto.toast('Class picker is visual only')">
+          <option>P5 Math — Tue 30 Jun, 4:30pm · Bukit Timah Rm 1</option>
+          <option>P5 Science — Sat 4 Jul, 10:00am · Bukit Timah Rm 2</option>
+          <option>Sec 2 Math — Wed 1 Jul, 2:00pm · Tampines Rm 1</option>
+        </select>
+        <span class="text-xs text-slate-500">Teacher: Mr. Desmond Ho</span>
+        <div class="ml-auto flex items-center gap-2">
+          <button class="text-sm border border-slate-300 rounded-lg px-3 py-2 text-slate-700 hover:bg-slate-50" onclick="proto.toast('All students marked present (visual only)')">Mark all present</button>
+          <button class="text-sm bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg px-4 py-2" onclick="proto.toast('Prototype — attendance not saved. In the real system this updates each student\'s lesson counter.')">Save attendance</button>
+        </div>
+      </div>
+
+      <div class="grid xl:grid-cols-3 gap-4">
+        <div class="xl:col-span-2 bg-white rounded-xl border border-slate-200 overflow-hidden">
+          <table class="w-full text-sm">
+            <thead><tr class="text-left text-xs text-slate-500 border-b border-slate-200 bg-slate-50">
+              <th class="px-4 py-3 font-medium">Student</th>
+              <th class="px-4 py-3 font-medium">Lesson counter</th>
+              <th class="px-4 py-3 font-medium">Mark</th>
+            </tr></thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr>
+                <td class="px-4 py-3"><div class="font-medium text-slate-800">Chloe Rahman</div><div class="text-xs text-slate-500">ST-2023-0114 · ✅ self-checked-in 4:26pm (app)</div></td>
+                <td class="px-4 py-3 text-xs text-slate-600">7 of 8 <span class="text-slate-400">→ 8 of 8 after save</span></td>
+                <td class="px-4 py-3"><div class="flex gap-1.5" data-seg>
+                  <button class="px-2.5 py-1 text-xs rounded-md border border-emerald-600 bg-emerald-600 text-white font-medium">Present</button>
+                  <button class="px-2.5 py-1 text-xs rounded-md border border-slate-200 text-slate-500 hover:bg-slate-50">Late</button>
+                  <button class="px-2.5 py-1 text-xs rounded-md border border-slate-200 text-slate-500 hover:bg-slate-50">Absent</button>
+                </div></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3"><div class="font-medium text-slate-800">Ethan Wong</div><div class="text-xs text-slate-500">ST-2022-0090</div></td>
+                <td class="px-4 py-3 text-xs text-slate-600">5 of 8</td>
+                <td class="px-4 py-3"><div class="flex gap-1.5" data-seg>
+                  <button class="px-2.5 py-1 text-xs rounded-md border border-slate-200 text-slate-500 hover:bg-slate-50">Present</button>
+                  <button class="px-2.5 py-1 text-xs rounded-md border border-amber-500 bg-amber-500 text-white font-medium">Late</button>
+                  <button class="px-2.5 py-1 text-xs rounded-md border border-slate-200 text-slate-500 hover:bg-slate-50">Absent</button>
+                </div></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3"><div class="font-medium text-slate-800">Grace Ong</div><div class="text-xs text-slate-500">ST-2022-0148 · ⚠ attendance below 80% this term</div></td>
+                <td class="px-4 py-3 text-xs text-slate-600">4 of 8</td>
+                <td class="px-4 py-3"><div class="flex gap-1.5" data-seg>
+                  <button class="px-2.5 py-1 text-xs rounded-md border border-slate-200 text-slate-500 hover:bg-slate-50">Present</button>
+                  <button class="px-2.5 py-1 text-xs rounded-md border border-slate-200 text-slate-500 hover:bg-slate-50">Late</button>
+                  <button class="px-2.5 py-1 text-xs rounded-md border border-rose-600 bg-rose-600 text-white font-medium">Absent</button>
+                </div></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3"><div class="font-medium text-slate-800">Aiden Koh</div><div class="text-xs text-slate-500">ST-2024-0311 · ✅ self-checked-in 4:29pm (app)</div></td>
+                <td class="px-4 py-3 text-xs text-slate-600">2 of 4 <span class="text-slate-400">(trial pack)</span></td>
+                <td class="px-4 py-3"><div class="flex gap-1.5" data-seg>
+                  <button class="px-2.5 py-1 text-xs rounded-md border border-emerald-600 bg-emerald-600 text-white font-medium">Present</button>
+                  <button class="px-2.5 py-1 text-xs rounded-md border border-slate-200 text-slate-500 hover:bg-slate-50">Late</button>
+                  <button class="px-2.5 py-1 text-xs rounded-md border border-slate-200 text-slate-500 hover:bg-slate-50">Absent</button>
+                </div></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3"><div class="font-medium text-slate-800">Nur Insyirah</div><div class="text-xs text-slate-500">ST-2021-0055</div></td>
+                <td class="px-4 py-3 text-xs text-slate-600">8 of 8 <span class="text-indigo-600 font-medium">· cycle complete → invoice queued</span></td>
+                <td class="px-4 py-3"><div class="flex gap-1.5" data-seg>
+                  <button class="px-2.5 py-1 text-xs rounded-md border border-emerald-600 bg-emerald-600 text-white font-medium">Present</button>
+                  <button class="px-2.5 py-1 text-xs rounded-md border border-slate-200 text-slate-500 hover:bg-slate-50">Late</button>
+                  <button class="px-2.5 py-1 text-xs rounded-md border border-slate-200 text-slate-500 hover:bg-slate-50">Absent</button>
+                </div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="space-y-4">
+          <div class="bg-white rounded-xl border border-slate-200 p-4">
+            <h3 class="text-sm font-semibold text-slate-800">Session summary</h3>
+            <dl class="mt-3 space-y-2 text-sm">
+              <div class="flex justify-between"><dt class="text-slate-500">Enrolled</dt><dd class="font-medium text-slate-900">15</dd></div>
+              <div class="flex justify-between"><dt class="text-slate-500">Present</dt><dd class="font-medium text-emerald-600">12</dd></div>
+              <div class="flex justify-between"><dt class="text-slate-500">Late</dt><dd class="font-medium text-amber-600">1</dd></div>
+              <div class="flex justify-between"><dt class="text-slate-500">Absent</dt><dd class="font-medium text-rose-600">2</dd></div>
+              <div class="flex justify-between"><dt class="text-slate-500">Self check-ins (app)</dt><dd class="font-medium text-slate-900">6</dd></div>
+            </dl>
+          </div>
+          <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-4 text-sm text-indigo-900">
+            <div class="font-semibold text-indigo-800 mb-1">⚙ Attendance → billing automation</div>
+            Saving attendance increments each student's lesson counter. When a counter reaches its billing-cycle quota, an invoice is generated automatically and payment reminders are scheduled.
+          </div>
+          <div class="bg-white rounded-xl border border-slate-200 p-4">
+            <h3 class="text-sm font-semibold text-slate-800">Exceptions</h3>
+            <p class="text-xs text-slate-500 mt-1">Absences with MC can be excluded from the billing count (manager approval required).</p>
+            <button class="mt-3 w-full text-sm border border-slate-300 rounded-lg px-3 py-2 text-slate-700 hover:bg-slate-50" onclick="proto.stub(event)">Flag an exception…</button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

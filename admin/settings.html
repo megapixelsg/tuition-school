@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings — EduCentre SMS</title>
+  <link rel="stylesheet" href="../assets/tailwind.css" />
+  <script defer src="../assets/app.js"></script>
+</head>
+<body class="bg-slate-100" data-active="settings" data-title="Settings" data-subtitle="Branches, roles, billing rules and data governance · Super Admin only">
+<div class="flex min-h-screen">
+  <aside id="sidebar" class="w-60 shrink-0 bg-slate-900 flex flex-col sticky top-0 h-screen"></aside>
+  <div class="flex-1 flex flex-col min-w-0">
+    <header id="topbar" class="sticky top-0 z-20"></header>
+    <main class="p-6 grid xl:grid-cols-2 gap-4 items-start">
+
+      <!-- Branches -->
+      <div class="bg-white rounded-xl border border-slate-200 p-5">
+        <div class="flex items-center justify-between">
+          <h2 class="font-semibold text-slate-900">Branches</h2>
+          <button class="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 text-slate-600 hover:bg-slate-50" onclick="proto.stub(event)">+ Add branch</button>
+        </div>
+        <ul class="mt-4 divide-y divide-slate-100 text-sm">
+          <li class="py-3 flex items-center justify-between"><div><div class="font-medium text-slate-800">Bukit Timah Centre</div><div class="text-xs text-slate-500">460 Alexandra Rd #03-02 · 3 rooms · Mgr: Mabel Chua</div></div><button class="text-xs text-indigo-600 hover:underline" onclick="proto.stub(event)">Edit</button></li>
+          <li class="py-3 flex items-center justify-between"><div><div class="font-medium text-slate-800">Tampines Centre</div><div class="text-xs text-slate-500">Tampines Central 5 #04-11 · 2 rooms · Mgr: Ravi Menon</div></div><button class="text-xs text-indigo-600 hover:underline" onclick="proto.stub(event)">Edit</button></li>
+          <li class="py-3 flex items-center justify-between"><div><div class="font-medium text-slate-800">Woodlands Centre</div><div class="text-xs text-slate-500">Woodlands Ave 1 #02-30 · 2 rooms · Mgr: Sarah Goh</div></div><button class="text-xs text-indigo-600 hover:underline" onclick="proto.stub(event)">Edit</button></li>
+        </ul>
+      </div>
+
+      <!-- Roles -->
+      <div class="bg-white rounded-xl border border-slate-200 p-5">
+        <div class="flex items-center justify-between">
+          <h2 class="font-semibold text-slate-900">Roles &amp; permissions</h2>
+          <button class="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 text-slate-600 hover:bg-slate-50" onclick="proto.stub(event)">+ Invite user</button>
+        </div>
+        <table class="w-full text-xs mt-4">
+          <thead><tr class="text-left text-slate-500 border-b border-slate-200">
+            <th class="py-2 font-medium">Capability</th><th class="py-2 font-medium text-center">Super Admin</th><th class="py-2 font-medium text-center">Branch Mgr</th><th class="py-2 font-medium text-center">Teacher</th>
+          </tr></thead>
+          <tbody class="divide-y divide-slate-100 text-slate-700">
+            <tr><td class="py-2">Dashboard &amp; reports</td><td class="text-center">✔ all branches</td><td class="text-center">✔ own branch</td><td class="text-center">—</td></tr>
+            <tr><td class="py-2">Students &amp; attendance</td><td class="text-center">✔</td><td class="text-center">✔</td><td class="text-center">✔ own classes</td></tr>
+            <tr><td class="py-2">Billing &amp; payments</td><td class="text-center">✔</td><td class="text-center">✔</td><td class="text-center">—</td></tr>
+            <tr><td class="py-2">Assessment overrides</td><td class="text-center">✔</td><td class="text-center">✔ approve</td><td class="text-center">request only</td></tr>
+            <tr><td class="py-2">Inventory</td><td class="text-center">✔</td><td class="text-center">✔ own branch</td><td class="text-center">—</td></tr>
+            <tr><td class="py-2">Settings &amp; audit log</td><td class="text-center">✔</td><td class="text-center">—</td><td class="text-center">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Billing rules -->
+      <div class="bg-white rounded-xl border border-slate-200 p-5">
+        <h2 class="font-semibold text-slate-900">Billing &amp; reminder rules</h2>
+        <dl class="mt-4 space-y-3 text-sm">
+          <div class="flex items-center justify-between"><dt class="text-slate-600">GST rate applied to invoices</dt><dd class="font-medium text-slate-900">9%</dd></div>
+          <div class="flex items-center justify-between"><dt class="text-slate-600">Invoice trigger</dt><dd class="font-medium text-slate-900">Lesson counter reaches cycle quota</dd></div>
+          <div class="flex items-center justify-between"><dt class="text-slate-600">Reminder sequence</dt><dd class="font-medium text-slate-900">T-3 email → due push → +7 WhatsApp → +14 escalate</dd></div>
+          <div class="flex items-center justify-between"><dt class="text-slate-600">MC / absence exclusions</dt><dd class="font-medium text-slate-900">Manager approval, audit-logged</dd></div>
+        </dl>
+        <button class="mt-4 text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 text-slate-600 hover:bg-slate-50" onclick="proto.stub(event)">Edit rules</button>
+      </div>
+
+      <!-- Data governance -->
+      <div class="bg-white rounded-xl border border-slate-200 p-5">
+        <h2 class="font-semibold text-slate-900">Security &amp; data governance</h2>
+        <ul class="mt-4 space-y-3 text-sm text-slate-700">
+          <li class="flex items-start gap-2"><span class="text-emerald-600">✔</span> Cloud deployment (AWS ap-southeast-1) · SSL enforced</li>
+          <li class="flex items-start gap-2"><span class="text-emerald-600">✔</span> Automated daily backups · 30-day point-in-time restore</li>
+          <li class="flex items-start gap-2"><span class="text-emerald-600">✔</span> Two-factor authentication for staff accounts</li>
+          <li class="flex items-start gap-2"><span class="text-emerald-600">✔</span> PDPA retention policy: student records 7 years after withdrawal, then anonymised</li>
+          <li class="flex items-start gap-2"><span class="text-emerald-600">✔</span> Audit logging on payments, assessments, inventory and role changes</li>
+        </ul>
+        <p class="mt-4 text-xs text-slate-400">Values shown are illustrative defaults for the prototype.</p>
+      </div>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

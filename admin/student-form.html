@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add / Edit Student — EduCentre SMS</title>
+  <link rel="stylesheet" href="../assets/tailwind.css" />
+  <script defer src="../assets/app.js"></script>
+</head>
+<body class="bg-slate-100" data-active="students" data-title="Add / Edit Student" data-subtitle="Form is non-persisting — prototype only">
+<div class="flex min-h-screen">
+  <aside id="sidebar" class="w-60 shrink-0 bg-slate-900 flex flex-col sticky top-0 h-screen"></aside>
+  <div class="flex-1 flex flex-col min-w-0">
+    <header id="topbar" class="sticky top-0 z-20"></header>
+    <main class="p-6">
+      <a href="students.html" class="text-xs text-slate-500 hover:text-indigo-600">← Back to students</a>
+
+      <form data-proto class="mt-3 max-w-3xl space-y-4">
+        <div class="bg-white rounded-xl border border-slate-200 p-5">
+          <h2 class="font-semibold text-slate-900 mb-4">Student particulars</h2>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <label class="text-sm"><span class="text-slate-600">Full name *</span>
+              <input class="mt-1 w-full border border-slate-300 rounded-lg px-3 py-2 text-sm" placeholder="e.g. Chloe Rahman"></label>
+            <label class="text-sm"><span class="text-slate-600">Date of birth *</span>
+              <input type="date" class="mt-1 w-full border border-slate-300 rounded-lg px-3 py-2 text-sm"></label>
+            <label class="text-sm"><span class="text-slate-600">Current school</span>
+              <input class="mt-1 w-full border border-slate-300 rounded-lg px-3 py-2 text-sm" placeholder="e.g. Pei Hwa Presbyterian Primary"></label>
+            <label class="text-sm"><span class="text-slate-600">Academic level *</span>
+              <select class="mt-1 w-full border border-slate-300 rounded-lg px-3 py-2 text-sm bg-white"><option>Primary 1</option><option>Primary 2</option><option>Primary 3</option><option>Primary 4</option><option selected>Primary 5</option><option>Primary 6</option><option>Secondary 1</option><option>Secondary 2</option><option>Secondary 3</option><option>Secondary 4</option></select></label>
+            <label class="text-sm sm:col-span-2"><span class="text-slate-600">Medical notes / allergies</span>
+              <textarea rows="2" class="mt-1 w-full border border-slate-300 rounded-lg px-3 py-2 text-sm" placeholder="Visible to teachers on the class roster"></textarea></label>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl border border-slate-200 p-5">
+          <h2 class="font-semibold text-slate-900 mb-4">Parent / guardian</h2>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <label class="text-sm"><span class="text-slate-600">Name *</span>
+              <input class="mt-1 w-full border border-slate-300 rounded-lg px-3 py-2 text-sm"></label>
+            <label class="text-sm"><span class="text-slate-600">Relationship</span>
+              <select class="mt-1 w-full border border-slate-300 rounded-lg px-3 py-2 text-sm bg-white"><option>Mother</option><option>Father</option><option>Guardian</option></select></label>
+            <label class="text-sm"><span class="text-slate-600">Mobile (SMS/WhatsApp reminders) *</span>
+              <input class="mt-1 w-full border border-slate-300 rounded-lg px-3 py-2 text-sm" placeholder="9xxx xxxx"></label>
+            <label class="text-sm"><span class="text-slate-600">Email (invoices &amp; portal access) *</span>
+              <input type="email" class="mt-1 w-full border border-slate-300 rounded-lg px-3 py-2 text-sm"></label>
+          </div>
+          <label class="mt-4 flex items-start gap-2 text-xs text-slate-600">
+            <input type="checkbox" class="mt-0.5"> PDPA consent — parent agrees to data collection for enrolment, billing and communications, per the centre's retention policy.
+          </label>
+        </div>
+
+        <div class="bg-white rounded-xl border border-slate-200 p-5">
+          <h2 class="font-semibold text-slate-900 mb-4">Enrolment</h2>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <label class="text-sm"><span class="text-slate-600">Branch *</span>
+              <select class="mt-1 w-full border border-slate-300 rounded-lg px-3 py-2 text-sm bg-white"><option>Bukit Timah Centre</option><option>Tampines Centre</option><option>Woodlands Centre</option></select></label>
+            <label class="text-sm"><span class="text-slate-600">Status</span>
+              <select class="mt-1 w-full border border-slate-300 rounded-lg px-3 py-2 text-sm bg-white"><option>Trial</option><option selected>Active</option><option>On hold</option></select></label>
+            <div class="text-sm sm:col-span-2">
+              <span class="text-slate-600">Programmes / subjects *</span>
+              <div class="mt-2 flex flex-wrap gap-2">
+                <label class="flex items-center gap-1.5 border border-indigo-300 bg-indigo-50 rounded-lg px-3 py-1.5 text-xs text-indigo-700"><input type="checkbox" checked> Mathematics</label>
+                <label class="flex items-center gap-1.5 border border-slate-200 rounded-lg px-3 py-1.5 text-xs text-slate-600"><input type="checkbox"> English</label>
+                <label class="flex items-center gap-1.5 border border-indigo-300 bg-indigo-50 rounded-lg px-3 py-1.5 text-xs text-indigo-700"><input type="checkbox" checked> Science</label>
+                <label class="flex items-center gap-1.5 border border-slate-200 rounded-lg px-3 py-1.5 text-xs text-slate-600"><input type="checkbox"> Chinese</label>
+              </div>
+            </div>
+            <label class="text-sm"><span class="text-slate-600">Billing cycle</span>
+              <select class="mt-1 w-full border border-slate-300 rounded-lg px-3 py-2 text-sm bg-white"><option>Monthly · 4 lessons</option><option selected>Monthly · 8 lessons</option><option>Term · 12 lessons</option></select></label>
+            <label class="text-sm"><span class="text-slate-600">Start date</span>
+              <input type="date" class="mt-1 w-full border border-slate-300 rounded-lg px-3 py-2 text-sm"></label>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button type="submit" class="text-sm bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg px-5 py-2.5">Save student</button>
+          <a href="students.html" class="text-sm text-slate-500 hover:text-slate-700">Cancel</a>
+          <span class="ml-auto text-xs text-slate-400">* required — submission shows a prototype notice, nothing is saved</span>
+        </div>
+      </form>
+    </main>
+  </div>
+</div>
+</body>
+</html>

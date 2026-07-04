@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inventory — EduCentre SMS</title>
+  <link rel="stylesheet" href="../assets/tailwind.css" />
+  <script defer src="../assets/app.js"></script>
+</head>
+<body class="bg-slate-100" data-active="inventory" data-title="Inventory Management" data-subtitle="Materials tracked per branch · auto-deducted on promotion / issue">
+<div class="flex min-h-screen">
+  <aside id="sidebar" class="w-60 shrink-0 bg-slate-900 flex flex-col sticky top-0 h-screen"></aside>
+  <div class="flex-1 flex flex-col min-w-0">
+    <header id="topbar" class="sticky top-0 z-20"></header>
+    <main class="p-6 space-y-4">
+
+      <!-- Alerts -->
+      <div class="grid md:grid-cols-2 gap-3">
+        <div class="rounded-xl border border-rose-200 bg-rose-50 p-4 flex items-start gap-3">
+          <span class="text-lg">✖</span>
+          <div class="text-sm">
+            <div class="font-semibold text-rose-800">Out of stock — P6 English workbooks (Woodlands)</div>
+            <p class="text-xs text-rose-700/80 mt-0.5">3 pending issues blocked. Suggested action: transfer 10 units from Tampines (34 in stock) or reorder.</p>
+            <div class="mt-2 flex gap-2">
+              <button class="text-xs bg-rose-600 text-white rounded-lg px-2.5 py-1.5 hover:bg-rose-700" onclick="proto.stub(event)">Create transfer</button>
+              <button class="text-xs border border-rose-300 text-rose-700 rounded-lg px-2.5 py-1.5 hover:bg-rose-100" onclick="proto.stub(event)">Reorder</button>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-xl border border-amber-200 bg-amber-50 p-4 flex items-start gap-3">
+          <span class="text-lg">⚠</span>
+          <div class="text-sm">
+            <div class="font-semibold text-amber-800">Low stock — Sec 3 kits (Tampines, 12 left)</div>
+            <p class="text-xs text-amber-700/80 mt-0.5">August assessment cycle projects 19 promotions needing this kit. Shortfall of 7 units.</p>
+            <div class="mt-2"><button class="text-xs border border-amber-300 text-amber-700 rounded-lg px-2.5 py-1.5 hover:bg-amber-100" onclick="proto.stub(event)">Reorder 20 units</button></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl border border-slate-200" data-tabgroup>
+        <div class="flex items-center gap-1 px-3 pt-2 border-b border-slate-200">
+          <button data-tab="stock" class="px-4 py-2.5 text-sm border-b-2 border-indigo-500 text-indigo-600 bg-indigo-50 rounded-t-lg">Stock levels</button>
+          <button data-tab="movements" class="px-4 py-2.5 text-sm border-b-2 border-transparent text-slate-500 rounded-t-lg">Movements</button>
+          <button data-tab="recon" class="px-4 py-2.5 text-sm border-b-2 border-transparent text-slate-500 rounded-t-lg">Reconciliation report</button>
+          <button class="ml-auto mb-1 text-sm bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg px-3 py-1.5" onclick="proto.stub(event)">+ Add item</button>
+        </div>
+
+        <!-- Stock -->
+        <section data-panel="stock">
+          <table class="w-full text-sm">
+            <thead><tr class="text-left text-xs text-slate-500 border-b border-slate-200 bg-slate-50">
+              <th class="px-4 py-3 font-medium">Item</th><th class="px-4 py-3 font-medium">Category</th>
+              <th class="px-4 py-3 font-medium text-right">Bukit Timah</th><th class="px-4 py-3 font-medium text-right">Tampines</th><th class="px-4 py-3 font-medium text-right">Woodlands</th>
+              <th class="px-4 py-3 font-medium text-right">Reorder at</th><th class="px-4 py-3 font-medium">Status</th>
+            </tr></thead>
+            <tbody class="divide-y divide-slate-100 text-slate-700">
+              <tr class="hover:bg-slate-50"><td class="px-4 py-3 font-medium text-slate-800">P5 Math workbook (2026 ed.)</td><td class="px-4 py-3 text-xs">Workbook</td><td class="px-4 py-3 text-right">64</td><td class="px-4 py-3 text-right">48</td><td class="px-4 py-3 text-right">30</td><td class="px-4 py-3 text-right text-slate-400">20</td><td class="px-4 py-3"><span class="inline-flex items-center gap-1 text-xs font-medium text-[#0ca30c]">✔ Healthy</span></td></tr>
+              <tr class="hover:bg-slate-50"><td class="px-4 py-3 font-medium text-slate-800">P6 English workbook</td><td class="px-4 py-3 text-xs">Workbook</td><td class="px-4 py-3 text-right">22</td><td class="px-4 py-3 text-right">34</td><td class="px-4 py-3 text-right text-rose-600 font-semibold">0</td><td class="px-4 py-3 text-right text-slate-400">15</td><td class="px-4 py-3"><span class="inline-flex items-center gap-1 text-xs font-medium text-[#d03b3b]">✖ Out of stock (1 branch)</span></td></tr>
+              <tr class="hover:bg-slate-50"><td class="px-4 py-3 font-medium text-slate-800">Sec 3 subject kit</td><td class="px-4 py-3 text-xs">Kit</td><td class="px-4 py-3 text-right">25</td><td class="px-4 py-3 text-right text-amber-600 font-semibold">12</td><td class="px-4 py-3 text-right">18</td><td class="px-4 py-3 text-right text-slate-400">15</td><td class="px-4 py-3"><span class="inline-flex items-center gap-1 text-xs font-medium text-amber-600">⚠ Low (1 branch)</span></td></tr>
+              <tr class="hover:bg-slate-50"><td class="px-4 py-3 font-medium text-slate-800">Level completion certificate</td><td class="px-4 py-3 text-xs">Certificate</td><td class="px-4 py-3 text-right">40</td><td class="px-4 py-3 text-right">28</td><td class="px-4 py-3 text-right">20</td><td class="px-4 py-3 text-right text-slate-400">25</td><td class="px-4 py-3"><span class="inline-flex items-center gap-1 text-xs font-medium text-[#0ca30c]">✔ Healthy</span></td></tr>
+              <tr class="hover:bg-slate-50"><td class="px-4 py-3 font-medium text-slate-800">Centre polo tee (M)</td><td class="px-4 py-3 text-xs">Merchandise</td><td class="px-4 py-3 text-right">15</td><td class="px-4 py-3 text-right">9</td><td class="px-4 py-3 text-right">11</td><td class="px-4 py-3 text-right text-slate-400">10</td><td class="px-4 py-3"><span class="inline-flex items-center gap-1 text-xs font-medium text-amber-600">⚠ Low (1 branch)</span></td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Movements -->
+        <section data-panel="movements" class="hidden p-5">
+          <h3 class="text-sm font-semibold text-slate-800 mb-3">Recent stock movements <span class="font-normal text-xs text-slate-500">— every movement is audit-logged</span></h3>
+          <table class="w-full text-sm">
+            <thead><tr class="text-left text-xs text-slate-500 border-b border-slate-200">
+              <th class="py-2 font-medium">When</th><th class="py-2 font-medium">Item</th><th class="py-2 font-medium">Branch</th><th class="py-2 font-medium">Qty</th><th class="py-2 font-medium">Reason</th>
+            </tr></thead>
+            <tbody class="divide-y divide-slate-100 text-slate-700">
+              <tr><td class="py-2.5">03 Jul 14:20</td><td>P5A workbook</td><td>Bukit Timah</td><td class="text-rose-600">−1</td><td class="text-xs">Auto-deduct · promotion: Chloe Rahman (May cycle make-up)</td></tr>
+              <tr><td class="py-2.5">02 Jul 10:05</td><td>Level certificate</td><td>Bukit Timah</td><td class="text-rose-600">−3</td><td class="text-xs">Auto-deduct · certificates issued (May cycle batch)</td></tr>
+              <tr><td class="py-2.5">01 Jul 09:30</td><td>P6 English workbook</td><td>Woodlands</td><td class="text-rose-600">−4</td><td class="text-xs">Issue to new enrolments → stock hit zero, alert raised</td></tr>
+              <tr><td class="py-2.5">28 Jun 16:12</td><td>Sec 3 subject kit</td><td>Tampines</td><td class="text-emerald-600">+20</td><td class="text-xs">Supplier delivery · PO-0142</td></tr>
+              <tr><td class="py-2.5">27 Jun 11:47</td><td>Centre polo tee (M)</td><td>Tampines → Woodlands</td><td class="text-slate-600">5 ⇄</td><td class="text-xs">Inter-branch transfer approved by Branch Manager</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Reconciliation -->
+        <section data-panel="recon" class="hidden p-5">
+          <div class="flex items-center justify-between mb-3">
+            <div>
+              <h3 class="text-sm font-semibold text-slate-800">Monthly reconciliation — June 2026</h3>
+              <p class="text-xs text-slate-500">System count vs physical count entered by each branch</p>
+            </div>
+            <button class="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 text-slate-600 hover:bg-slate-50" onclick="proto.stub(event)">⬇ Export report</button>
+          </div>
+          <table class="w-full text-sm">
+            <thead><tr class="text-left text-xs text-slate-500 border-b border-slate-200">
+              <th class="py-2 font-medium">Item · branch</th><th class="py-2 font-medium text-right">System</th><th class="py-2 font-medium text-right">Physical</th><th class="py-2 font-medium text-right">Variance</th><th class="py-2 font-medium">Resolution</th>
+            </tr></thead>
+            <tbody class="divide-y divide-slate-100 text-slate-700">
+              <tr><td class="py-2.5">P5 Math workbook · Bukit Timah</td><td class="text-right">64</td><td class="text-right">64</td><td class="text-right text-emerald-600">0</td><td class="text-xs text-slate-500">—</td></tr>
+              <tr><td class="py-2.5">Level certificate · Tampines</td><td class="text-right">28</td><td class="text-right">27</td><td class="text-right text-rose-600">−1</td><td class="text-xs"><span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-700">Pending investigation</span></td></tr>
+              <tr><td class="py-2.5">Centre polo tee (M) · Woodlands</td><td class="text-right">11</td><td class="text-right">12</td><td class="text-right text-rose-600">+1</td><td class="text-xs"><span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">Adjusted · transfer logged late</span></td></tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

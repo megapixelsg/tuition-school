@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Billing &amp; Payments — EduCentre SMS</title>
+  <link rel="stylesheet" href="../assets/tailwind.css" />
+  <script defer src="../assets/app.js"></script>
+</head>
+<body class="bg-slate-100" data-active="billing" data-title="Billing &amp; Payments" data-subtitle="Invoices auto-generated from attendance · automated reminders">
+<div class="flex min-h-screen">
+  <aside id="sidebar" class="w-60 shrink-0 bg-slate-900 flex flex-col sticky top-0 h-screen"></aside>
+  <div class="flex-1 flex flex-col min-w-0">
+    <header id="topbar" class="sticky top-0 z-20"></header>
+    <main class="p-6 space-y-4">
+
+      <!-- KPI strip -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bg-white rounded-xl border border-slate-200 p-4"><div class="text-xs text-slate-500">Billed (Jul cycle)</div><div class="mt-1 text-xl font-semibold text-slate-900">S$104,500</div></div>
+        <div class="bg-white rounded-xl border border-slate-200 p-4"><div class="text-xs text-slate-500">Collected</div><div class="mt-1 text-xl font-semibold text-emerald-600">S$86,320</div></div>
+        <div class="bg-white rounded-xl border border-slate-200 p-4"><div class="text-xs text-slate-500">Outstanding</div><div class="mt-1 text-xl font-semibold text-amber-600">S$18,180</div></div>
+        <div class="bg-white rounded-xl border border-slate-200 p-4"><div class="text-xs text-slate-500">Overdue &gt; 14 days</div><div class="mt-1 text-xl font-semibold text-rose-600">S$4,920 <span class="text-xs font-normal">(9 invoices)</span></div></div>
+      </div>
+
+      <div class="bg-white rounded-xl border border-slate-200" data-tabgroup>
+        <div class="flex items-center gap-1 px-3 pt-2 border-b border-slate-200">
+          <button data-tab="invoices" class="px-4 py-2.5 text-sm border-b-2 border-indigo-500 text-indigo-600 bg-indigo-50 rounded-t-lg">Invoices</button>
+          <button data-tab="reminders" class="px-4 py-2.5 text-sm border-b-2 border-transparent text-slate-500 rounded-t-lg">Automated reminders</button>
+          <button data-tab="recon" class="px-4 py-2.5 text-sm border-b-2 border-transparent text-slate-500 rounded-t-lg">Reconciliation</button>
+          <button class="ml-auto mb-1 text-sm bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg px-3 py-1.5" onclick="proto.stub(event)">+ Manual invoice</button>
+        </div>
+
+        <!-- Invoices -->
+        <section data-panel="invoices">
+          <div class="p-4 flex flex-wrap gap-3 border-b border-slate-100">
+            <input type="search" placeholder="Search invoice no. or student…" class="flex-1 min-w-[200px] px-3 py-2 text-sm border border-slate-300 rounded-lg" onkeydown="if(event.key==='Enter'){proto.toast('Search is visual only')}">
+            <select class="text-sm border border-slate-300 rounded-lg px-2.5 py-2 text-slate-600" onchange="proto.toast('Filters are visual only')"><option>All statuses</option><option>Paid</option><option>Outstanding</option><option>Overdue</option></select>
+            <select class="text-sm border border-slate-300 rounded-lg px-2.5 py-2 text-slate-600" onchange="proto.toast('Filters are visual only')"><option>Jul 2026</option><option>Jun 2026</option><option>May 2026</option></select>
+          </div>
+          <table class="w-full text-sm">
+            <thead><tr class="text-left text-xs text-slate-500 border-b border-slate-200 bg-slate-50">
+              <th class="px-4 py-3 font-medium">Invoice</th><th class="px-4 py-3 font-medium">Student</th><th class="px-4 py-3 font-medium">Branch</th>
+              <th class="px-4 py-3 font-medium">Basis</th><th class="px-4 py-3 font-medium">Amount (incl. GST)</th><th class="px-4 py-3 font-medium">Due</th><th class="px-4 py-3 font-medium">Status</th><th></th>
+            </tr></thead>
+            <tbody class="divide-y divide-slate-100 text-slate-700">
+              <tr class="hover:bg-slate-50">
+                <td class="px-4 py-3 font-medium text-slate-800">INV-2026-0712</td><td class="px-4 py-3">Chloe Rahman</td><td class="px-4 py-3">Bukit Timah</td>
+                <td class="px-4 py-3 text-xs">8 lessons · auto</td><td class="px-4 py-3">S$392.40</td><td class="px-4 py-3">01 Aug</td>
+                <td class="px-4 py-3"><span class="text-xs px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">Scheduled</span></td>
+                <td class="px-4 py-3 text-right"><a href="invoice.html" class="text-xs text-indigo-600 hover:underline">View →</a></td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="px-4 py-3 font-medium text-slate-800">INV-2026-0698</td><td class="px-4 py-3">Nur Insyirah</td><td class="px-4 py-3">Bukit Timah</td>
+                <td class="px-4 py-3 text-xs">8 lessons · auto</td><td class="px-4 py-3">S$392.40</td><td class="px-4 py-3">15 Jul</td>
+                <td class="px-4 py-3"><span class="text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-700">Outstanding</span></td>
+                <td class="px-4 py-3 text-right"><a href="invoice.html" class="text-xs text-indigo-600 hover:underline">View →</a></td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="px-4 py-3 font-medium text-slate-800">INV-2026-0655</td><td class="px-4 py-3">Marcus Tan</td><td class="px-4 py-3">Tampines</td>
+                <td class="px-4 py-3 text-xs">8 lessons · auto</td><td class="px-4 py-3">S$436.00</td><td class="px-4 py-3 text-rose-600">20 Jun · 14d overdue</td>
+                <td class="px-4 py-3"><span class="text-xs px-2 py-0.5 rounded-full bg-rose-100 text-rose-700">Overdue</span></td>
+                <td class="px-4 py-3 text-right"><a href="invoice.html" class="text-xs text-indigo-600 hover:underline">View →</a></td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="px-4 py-3 font-medium text-slate-800">INV-2026-0642</td><td class="px-4 py-3">Chloe Rahman</td><td class="px-4 py-3">Bukit Timah</td>
+                <td class="px-4 py-3 text-xs">8 lessons · auto</td><td class="px-4 py-3">S$392.40</td><td class="px-4 py-3">01 Jul</td>
+                <td class="px-4 py-3"><span class="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">Paid · PayNow</span></td>
+                <td class="px-4 py-3 text-right"><a href="invoice.html" class="text-xs text-indigo-600 hover:underline">View →</a></td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="px-4 py-3 font-medium text-slate-800">INV-2026-0630</td><td class="px-4 py-3">Dhruv Kumar</td><td class="px-4 py-3">Bukit Timah</td>
+                <td class="px-4 py-3 text-xs">Holiday programme</td><td class="px-4 py-3">S$218.00</td><td class="px-4 py-3">15 Jul</td>
+                <td class="px-4 py-3"><span class="text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-700">Outstanding</span></td>
+                <td class="px-4 py-3 text-right"><a href="invoice.html" class="text-xs text-indigo-600 hover:underline">View →</a></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="px-4 py-3 border-t border-slate-100 text-xs text-slate-500">Showing 5 of 311 invoices · amounts include 9% GST</div>
+        </section>
+
+        <!-- Reminders -->
+        <section data-panel="reminders" class="hidden p-5">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <h3 class="text-sm font-semibold text-slate-800">Automated payment reminder queue</h3>
+              <p class="text-xs text-slate-500">Rules: T-3 days before due (email) → due date (app push) → +7 days (WhatsApp) → +14 days (escalate to manager)</p>
+            </div>
+            <button class="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 text-slate-600 hover:bg-slate-50" onclick="proto.stub(event)">Edit reminder rules</button>
+          </div>
+          <table class="w-full text-sm">
+            <thead><tr class="text-left text-xs text-slate-500 border-b border-slate-200">
+              <th class="py-2 font-medium">When</th><th class="py-2 font-medium">Invoice</th><th class="py-2 font-medium">Recipient</th><th class="py-2 font-medium">Channel</th><th class="py-2 font-medium">Status</th>
+            </tr></thead>
+            <tbody class="divide-y divide-slate-100 text-slate-700">
+              <tr><td class="py-2.5">Today 6:00pm</td><td>INV-2026-0698</td><td>Mdm. F. Insyirah</td><td>Email</td><td><span class="text-xs px-2 py-0.5 rounded-full bg-sky-100 text-sky-700">Queued</span></td></tr>
+              <tr><td class="py-2.5">Today 6:00pm</td><td>INV-2026-0655</td><td>Mr. D. Tan</td><td>WhatsApp</td><td><span class="text-xs px-2 py-0.5 rounded-full bg-sky-100 text-sky-700">Queued (3rd reminder)</span></td></tr>
+              <tr><td class="py-2.5">Yesterday</td><td>INV-2026-0630</td><td>Mrs. P. Kumar</td><td>App push</td><td><span class="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">Sent · opened</span></td></tr>
+              <tr><td class="py-2.5">28 Jun</td><td>INV-2026-0611</td><td>Mr. K. Ong</td><td>Email</td><td><span class="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">Sent · paid next day</span></td></tr>
+              <tr><td class="py-2.5">27 Jun</td><td>INV-2026-0655</td><td>Mr. D. Tan</td><td>Email</td><td><span class="text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-700">Sent · no response → escalated</span></td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Reconciliation -->
+        <section data-panel="recon" class="hidden p-5">
+          <h3 class="text-sm font-semibold text-slate-800 mb-1">Payment reconciliation</h3>
+          <p class="text-xs text-slate-500 mb-4">Incoming payments matched to invoices automatically; unmatched items require manual action.</p>
+          <table class="w-full text-sm">
+            <thead><tr class="text-left text-xs text-slate-500 border-b border-slate-200">
+              <th class="py-2 font-medium">Received</th><th class="py-2 font-medium">Method</th><th class="py-2 font-medium">Amount</th><th class="py-2 font-medium">Matched invoice</th><th class="py-2 font-medium">State</th><th></th>
+            </tr></thead>
+            <tbody class="divide-y divide-slate-100 text-slate-700">
+              <tr><td class="py-2.5">03 Jul 09:14</td><td>PayNow ref 88213…</td><td>S$392.40</td><td>INV-2026-0642</td><td><span class="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">Auto-matched</span></td><td></td></tr>
+              <tr><td class="py-2.5">02 Jul 18:40</td><td>Bank transfer</td><td>S$436.00</td><td class="text-slate-400">—</td><td><span class="text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-700">Unmatched</span></td><td class="text-right"><button class="text-xs text-indigo-600 hover:underline" onclick="proto.stub(event)">Match manually</button></td></tr>
+              <tr><td class="py-2.5">02 Jul 11:03</td><td>Card (gateway)</td><td>S$218.00</td><td>INV-2026-0619</td><td><span class="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">Auto-matched</span></td><td></td></tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

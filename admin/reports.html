@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reports — EduCentre SMS</title>
+  <link rel="stylesheet" href="../assets/tailwind.css" />
+  <script defer src="../assets/app.js"></script>
+</head>
+<body class="bg-slate-100" data-active="reports" data-title="Management Reports" data-subtitle="Exportable reports · scheduled email delivery">
+<div class="flex min-h-screen">
+  <aside id="sidebar" class="w-60 shrink-0 bg-slate-900 flex flex-col sticky top-0 h-screen"></aside>
+  <div class="flex-1 flex flex-col min-w-0">
+    <header id="topbar" class="sticky top-0 z-20"></header>
+    <main class="p-6 space-y-4">
+
+      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
+        <div class="bg-white rounded-xl border border-slate-200 p-5">
+          <div class="text-xl">📈</div>
+          <h2 class="mt-2 font-semibold text-slate-900">Enrolment &amp; retention</h2>
+          <p class="text-xs text-slate-500 mt-1">New sign-ups, withdrawals, retention rate by branch and programme.</p>
+          <div class="mt-4 flex gap-2">
+            <button class="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 text-slate-600 hover:bg-slate-50" onclick="proto.stub(event)">⬇ PDF</button>
+            <button class="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 text-slate-600 hover:bg-slate-50" onclick="proto.stub(event)">⬇ Excel</button>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl border border-slate-200 p-5">
+          <div class="text-xl">💰</div>
+          <h2 class="mt-2 font-semibold text-slate-900">Revenue &amp; collections</h2>
+          <p class="text-xs text-slate-500 mt-1">Billed vs collected vs outstanding, ageing analysis, GST summary.</p>
+          <div class="mt-4 flex gap-2">
+            <button class="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 text-slate-600 hover:bg-slate-50" onclick="proto.stub(event)">⬇ PDF</button>
+            <button class="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 text-slate-600 hover:bg-slate-50" onclick="proto.stub(event)">⬇ Excel</button>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl border border-slate-200 p-5">
+          <div class="text-xl">✅</div>
+          <h2 class="mt-2 font-semibold text-slate-900">Attendance analysis</h2>
+          <p class="text-xs text-slate-500 mt-1">Attendance rate by class, teacher and branch; at-risk students (&lt; 80%).</p>
+          <div class="mt-4 flex gap-2">
+            <button class="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 text-slate-600 hover:bg-slate-50" onclick="proto.stub(event)">⬇ PDF</button>
+            <button class="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 text-slate-600 hover:bg-slate-50" onclick="proto.stub(event)">⬇ Excel</button>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl border border-slate-200 p-5">
+          <div class="text-xl">📝</div>
+          <h2 class="mt-2 font-semibold text-slate-900">Assessment outcomes</h2>
+          <p class="text-xs text-slate-500 mt-1">Promotions, retentions and overrides per cycle; upcoming volume forecast.</p>
+          <div class="mt-4 flex gap-2">
+            <button class="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 text-slate-600 hover:bg-slate-50" onclick="proto.stub(event)">⬇ PDF</button>
+            <button class="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 text-slate-600 hover:bg-slate-50" onclick="proto.stub(event)">⬇ Excel</button>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl border border-slate-200 p-5">
+          <div class="text-xl">📦</div>
+          <h2 class="mt-2 font-semibold text-slate-900">Inventory reconciliation</h2>
+          <p class="text-xs text-slate-500 mt-1">Stock levels, movements, variances and reorder recommendations by branch.</p>
+          <div class="mt-4 flex gap-2">
+            <button class="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 text-slate-600 hover:bg-slate-50" onclick="proto.stub(event)">⬇ PDF</button>
+            <button class="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 text-slate-600 hover:bg-slate-50" onclick="proto.stub(event)">⬇ Excel</button>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl border border-slate-200 p-5">
+          <div class="text-xl">📣</div>
+          <h2 class="mt-2 font-semibold text-slate-900">Campaign performance</h2>
+          <p class="text-xs text-slate-500 mt-1">Reach, conversion and attributed revenue per campaign and channel.</p>
+          <div class="mt-4 flex gap-2">
+            <button class="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 text-slate-600 hover:bg-slate-50" onclick="proto.stub(event)">⬇ PDF</button>
+            <button class="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 text-slate-600 hover:bg-slate-50" onclick="proto.stub(event)">⬇ Excel</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl border border-slate-200 p-5">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="font-semibold text-slate-900">Scheduled reports</h2>
+            <p class="text-xs text-slate-500">Automatic email delivery to management</p>
+          </div>
+          <button class="text-sm border border-slate-300 rounded-lg px-3 py-2 text-slate-700 hover:bg-slate-50" onclick="proto.stub(event)">+ New schedule</button>
+        </div>
+        <table class="w-full text-sm mt-4">
+          <thead><tr class="text-left text-xs text-slate-500 border-b border-slate-200">
+            <th class="py-2 font-medium">Report</th><th class="py-2 font-medium">Frequency</th><th class="py-2 font-medium">Recipients</th><th class="py-2 font-medium">Last sent</th><th></th>
+          </tr></thead>
+          <tbody class="divide-y divide-slate-100 text-slate-700">
+            <tr><td class="py-2.5">Revenue &amp; collections</td><td>Weekly · Mon 8am</td><td>Directors, Branch Managers</td><td>29 Jun</td><td class="text-right"><button class="text-xs text-indigo-600 hover:underline" onclick="proto.stub(event)">Edit</button></td></tr>
+            <tr><td class="py-2.5">Attendance analysis</td><td>Monthly · 1st</td><td>Branch Managers</td><td>01 Jul</td><td class="text-right"><button class="text-xs text-indigo-600 hover:underline" onclick="proto.stub(event)">Edit</button></td></tr>
+            <tr><td class="py-2.5">Inventory reconciliation</td><td>Monthly · last day</td><td>Ops Admin</td><td>30 Jun</td><td class="text-right"><button class="text-xs text-indigo-600 hover:underline" onclick="proto.stub(event)">Edit</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

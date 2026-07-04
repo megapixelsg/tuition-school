@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — EduCentre SMS</title>
+  <link rel="stylesheet" href="../assets/tailwind.css" />
+  <script defer src="../assets/app.js"></script>
+</head>
+<body class="bg-slate-100" data-active="dashboard" data-title="Management Dashboard" data-subtitle="Real-time overview across all branches · mock data">
+<div class="flex min-h-screen">
+  <aside id="sidebar" class="w-60 shrink-0 bg-slate-900 flex flex-col sticky top-0 h-screen"></aside>
+  <div class="flex-1 flex flex-col min-w-0">
+    <header id="topbar" class="sticky top-0 z-20"></header>
+    <main class="p-6 space-y-6">
+
+      <!-- Stat tiles -->
+      <div class="grid grid-cols-2 xl:grid-cols-5 gap-4">
+        <div class="bg-white rounded-xl border border-slate-200 p-4">
+          <div class="text-xs text-slate-500">Active students</div>
+          <div class="mt-1 text-2xl font-semibold text-slate-900">482</div>
+          <div class="text-xs mt-1 text-[#006300]">↑ 24 this term</div>
+        </div>
+        <div class="bg-white rounded-xl border border-slate-200 p-4">
+          <div class="text-xs text-slate-500">Attendance this week</div>
+          <div class="mt-1 text-2xl font-semibold text-slate-900">91.4%</div>
+          <div class="text-xs mt-1 text-[#006300]">↑ 1.8% vs last week</div>
+        </div>
+        <div class="bg-white rounded-xl border border-slate-200 p-4">
+          <div class="text-xs text-slate-500">Revenue collected (Jul)</div>
+          <div class="mt-1 text-2xl font-semibold text-slate-900">S$86,320</div>
+          <div class="text-xs mt-1 text-slate-500">of S$104,500 billed</div>
+        </div>
+        <div class="bg-white rounded-xl border border-slate-200 p-4">
+          <div class="text-xs text-slate-500">Outstanding</div>
+          <div class="mt-1 text-2xl font-semibold text-slate-900">S$18,180</div>
+          <div class="text-xs mt-1 text-rose-600">32 invoices overdue</div>
+        </div>
+        <div class="bg-white rounded-xl border border-slate-200 p-4">
+          <div class="text-xs text-slate-500">Due for assessment</div>
+          <div class="mt-1 text-2xl font-semibold text-slate-900">57</div>
+          <div class="text-xs mt-1 text-slate-500">next cycle · 15 Aug</div>
+        </div>
+      </div>
+
+      <div class="grid xl:grid-cols-3 gap-6">
+        <!-- Attendance trend (single series — no legend, selective labels) -->
+        <div class="xl:col-span-2 bg-white rounded-xl border border-slate-200 p-5">
+          <div class="flex items-center justify-between">
+            <div>
+              <h2 class="font-semibold text-slate-900">Attendance trend</h2>
+              <p class="text-xs text-slate-500">Weekly attendance rate, last 12 weeks — all branches</p>
+            </div>
+            <select class="text-xs border border-slate-300 rounded-lg px-2 py-1.5 text-slate-600" onchange="proto.toast('Filters are visual only')">
+              <option>Last 12 weeks</option><option>Last 6 months</option><option>Year to date</option>
+            </select>
+          </div>
+          <div class="mt-5 relative h-44">
+            <div class="absolute inset-0 flex flex-col justify-between">
+              <div class="border-t border-[#e1e0d9] text-[10px] text-[#898781] -mt-1.5 pl-1">100%</div>
+              <div class="border-t border-[#e1e0d9] text-[10px] text-[#898781] -mt-1.5 pl-1">75%</div>
+              <div class="border-t border-[#e1e0d9] text-[10px] text-[#898781] -mt-1.5 pl-1">50%</div>
+              <div class="border-t border-[#c3c2b7]"></div>
+            </div>
+            <div class="absolute inset-x-8 bottom-px top-0 flex items-end gap-[6px]">
+              <div class="flex-1 relative bg-[#2a78d6] rounded-t" style="height:84%"><span class="absolute -top-4 left-1/2 -translate-x-1/2 text-[10px] text-slate-700">84</span></div>
+              <div class="flex-1 bg-[#2a78d6] rounded-t" style="height:87%"></div>
+              <div class="flex-1 bg-[#2a78d6] rounded-t" style="height:85%"></div>
+              <div class="flex-1 bg-[#2a78d6] rounded-t" style="height:89%"></div>
+              <div class="flex-1 bg-[#2a78d6] rounded-t" style="height:86%"></div>
+              <div class="flex-1 bg-[#2a78d6] rounded-t" style="height:90%"></div>
+              <div class="flex-1 bg-[#2a78d6] rounded-t" style="height:88%"></div>
+              <div class="flex-1 relative bg-[#2a78d6] rounded-t" style="height:94%"><span class="absolute -top-4 left-1/2 -translate-x-1/2 text-[10px] text-slate-700 font-medium">94</span></div>
+              <div class="flex-1 bg-[#2a78d6] rounded-t" style="height:90%"></div>
+              <div class="flex-1 bg-[#2a78d6] rounded-t" style="height:89%"></div>
+              <div class="flex-1 bg-[#2a78d6] rounded-t" style="height:92%"></div>
+              <div class="flex-1 relative bg-[#2a78d6] rounded-t" style="height:91%"><span class="absolute -top-4 left-1/2 -translate-x-1/2 text-[10px] text-slate-700">91</span></div>
+            </div>
+          </div>
+          <div class="mt-2 ml-8 flex justify-between text-[10px] text-[#898781]">
+            <span>Wk 15</span><span>Wk 17</span><span>Wk 19</span><span>Wk 21</span><span>Wk 23</span><span>Wk 26</span>
+          </div>
+        </div>
+
+        <!-- Active students by branch (single series, direct labels) -->
+        <div class="bg-white rounded-xl border border-slate-200 p-5">
+          <h2 class="font-semibold text-slate-900">Active students by branch</h2>
+          <p class="text-xs text-slate-500">Current enrolment</p>
+          <div class="mt-5 space-y-4">
+            <div>
+              <div class="flex justify-between text-xs mb-1"><span class="text-slate-700">Bukit Timah</span><span class="font-medium text-slate-900">198</span></div>
+              <div class="h-3 bg-slate-100 rounded"><div class="h-3 rounded bg-[#2a78d6]" style="width:100%"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-xs mb-1"><span class="text-slate-700">Tampines</span><span class="font-medium text-slate-900">167</span></div>
+              <div class="h-3 bg-slate-100 rounded"><div class="h-3 rounded bg-[#2a78d6]" style="width:84%"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-xs mb-1"><span class="text-slate-700">Woodlands</span><span class="font-medium text-slate-900">117</span></div>
+              <div class="h-3 bg-slate-100 rounded"><div class="h-3 rounded bg-[#2a78d6]" style="width:59%"></div></div>
+            </div>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100">
+            <h3 class="text-xs font-semibold text-slate-700">Upcoming assessment volume</h3>
+            <ul class="mt-2 space-y-1.5 text-xs text-slate-600">
+              <li class="flex justify-between"><span>Aug cycle — eligible</span><span class="font-medium text-slate-900">57 students</span></li>
+              <li class="flex justify-between"><span>Manual overrides pending</span><span class="font-medium text-slate-900">4</span></li>
+              <li class="flex justify-between"><span>Certificates required</span><span class="font-medium text-slate-900">61</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid xl:grid-cols-3 gap-6">
+        <!-- Revenue collected vs outstanding (2 series — legend present) -->
+        <div class="xl:col-span-2 bg-white rounded-xl border border-slate-200 p-5">
+          <div class="flex items-center justify-between">
+            <div>
+              <h2 class="font-semibold text-slate-900">Revenue — collected vs outstanding</h2>
+              <p class="text-xs text-slate-500">July billing cycle by branch (S$)</p>
+            </div>
+            <div class="flex items-center gap-4 text-xs text-slate-600">
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm bg-[#2a78d6]"></span>Collected</span>
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm bg-[#1baf7a]"></span>Outstanding</span>
+            </div>
+          </div>
+          <div class="mt-5 space-y-4">
+            <div>
+              <div class="flex justify-between text-xs mb-1"><span class="text-slate-700">Bukit Timah</span><span class="text-slate-500">S$36,900 / <span class="font-medium text-slate-900">S$42,400</span></span></div>
+              <div class="h-4 rounded overflow-hidden flex gap-[2px] bg-slate-100">
+                <div class="bg-[#2a78d6]" style="width:78%"></div><div class="bg-[#1baf7a]" style="width:13%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-xs mb-1"><span class="text-slate-700">Tampines</span><span class="text-slate-500">S$29,750 / <span class="font-medium text-slate-900">S$35,600</span></span></div>
+              <div class="h-4 rounded overflow-hidden flex gap-[2px] bg-slate-100">
+                <div class="bg-[#2a78d6]" style="width:67%"></div><div class="bg-[#1baf7a]" style="width:13%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-xs mb-1"><span class="text-slate-700">Woodlands</span><span class="text-slate-500">S$19,670 / <span class="font-medium text-slate-900">S$26,500</span></span></div>
+              <div class="h-4 rounded overflow-hidden flex gap-[2px] bg-slate-100">
+                <div class="bg-[#2a78d6]" style="width:44%"></div><div class="bg-[#1baf7a]" style="width:15%"></div>
+              </div>
+            </div>
+          </div>
+          <p class="mt-4 text-xs text-slate-500">32 overdue invoices are queued for automated reminders — <a href="billing.html" class="text-indigo-600 hover:underline">view billing</a></p>
+        </div>
+
+        <!-- Inventory status (status palette, icon + label, never color alone) -->
+        <div class="bg-white rounded-xl border border-slate-200 p-5">
+          <div class="flex items-center justify-between">
+            <h2 class="font-semibold text-slate-900">Inventory status</h2>
+            <a href="inventory.html" class="text-xs text-indigo-600 hover:underline">Manage →</a>
+          </div>
+          <ul class="mt-4 space-y-3 text-sm">
+            <li class="flex items-center justify-between">
+              <span class="text-slate-700">P5 Math workbooks</span>
+              <span class="inline-flex items-center gap-1 text-xs font-medium text-[#0ca30c]">✔ In stock (142)</span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span class="text-slate-700">Level certificates</span>
+              <span class="inline-flex items-center gap-1 text-xs font-medium text-[#0ca30c]">✔ In stock (88)</span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span class="text-slate-700">Sec 2 Science kits</span>
+              <span class="inline-flex items-center gap-1 text-xs font-medium text-amber-600">⚠ Low (12 left)</span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span class="text-slate-700">P6 English workbooks</span>
+              <span class="inline-flex items-center gap-1 text-xs font-medium text-[#d03b3b]">✖ Out of stock — Woodlands</span>
+            </li>
+          </ul>
+          <div class="mt-5 pt-4 border-t border-slate-100">
+            <button onclick="proto.toast('Reports are mock — export not wired')" class="w-full text-sm border border-slate-300 rounded-lg px-3 py-2 text-slate-700 hover:bg-slate-50">
+              ⬇ Export management report (PDF / Excel)
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

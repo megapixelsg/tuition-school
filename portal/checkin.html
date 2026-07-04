@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parent Portal — Check-in</title>
+  <link rel="stylesheet" href="../assets/tailwind.css" />
+  <script defer src="../assets/app.js"></script>
+</head>
+<body class="min-h-screen bg-slate-200 flex items-center justify-center p-4 sm:p-8" style="background-image: radial-gradient(ellipse at top, #e2e8f0, #cbd5e1);">
+  <div class="w-full max-w-sm bg-slate-50 rounded-[2rem] shadow-2xl border-[6px] border-slate-800 overflow-hidden flex flex-col" style="height: min(88vh, 780px);">
+    <div class="bg-indigo-600 text-white px-5 pt-6 pb-5">
+      <div class="font-semibold">Self check-in</div>
+      <div class="text-xs text-indigo-200 mt-0.5">Scan at the centre's front desk to mark attendance</div>
+    </div>
+
+    <div class="flex-1 overflow-y-auto p-4 space-y-4">
+      <div class="bg-white rounded-xl border border-slate-200 p-5 text-center">
+        <div class="text-sm font-semibold text-slate-800">Chloe Rahman · ST-2023-0114</div>
+        <div class="text-xs text-slate-500">P5 Mathematics · today 4:30pm · Bukit Timah Rm 1</div>
+        <!-- Mock QR code -->
+        <div class="mt-4 mx-auto w-44 h-44 rounded-xl border border-slate-200 p-2 grid grid-cols-8 gap-0.5 bg-white">
+          <div class="bg-slate-900 col-span-2 row-span-2 rounded-sm"></div><div></div><div class="bg-slate-900"></div><div></div><div class="bg-slate-900"></div><div class="bg-slate-900 col-span-2 row-span-2 rounded-sm"></div>
+          <div></div><div class="bg-slate-900"></div><div class="bg-slate-900"></div><div></div>
+          <div class="bg-slate-900"></div><div></div><div class="bg-slate-900"></div><div class="bg-slate-900"></div><div></div><div class="bg-slate-900"></div><div></div><div class="bg-slate-900"></div>
+          <div></div><div class="bg-slate-900"></div><div></div><div class="bg-slate-900"></div><div class="bg-slate-900"></div><div></div><div class="bg-slate-900"></div><div></div>
+          <div class="bg-slate-900"></div><div class="bg-slate-900"></div><div></div><div class="bg-slate-900"></div><div></div><div class="bg-slate-900"></div><div class="bg-slate-900"></div><div></div>
+          <div class="bg-slate-900 col-span-2 row-span-2 rounded-sm"></div><div></div><div class="bg-slate-900"></div><div class="bg-slate-900"></div><div></div><div class="bg-slate-900"></div><div class="bg-slate-900"></div>
+          <div></div><div></div><div class="bg-slate-900"></div><div></div><div class="bg-slate-900"></div><div></div>
+        </div>
+        <div class="mt-3 text-[11px] text-slate-400">QR refreshes every 60s · mock code</div>
+        <button class="mt-4 w-full bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-xl py-3" onclick="proto.toast('✅ Checked in at 4:26pm (prototype) — attendance sent to teacher\'s roster')">
+          📍 Tap to check in instead
+        </button>
+      </div>
+
+      <div class="bg-white rounded-xl border border-slate-200 p-4">
+        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Recent check-ins</span>
+        <ul class="mt-2 divide-y divide-slate-100 text-sm">
+          <li class="py-2 flex justify-between"><span class="text-slate-700">Sat 27 Jun · P5 Science</span><span class="text-xs text-emerald-600">✔ 9:56am · app</span></li>
+          <li class="py-2 flex justify-between"><span class="text-slate-700">Tue 23 Jun · P5 Math</span><span class="text-xs text-amber-600">⚠ 4:41pm · late</span></li>
+          <li class="py-2 flex justify-between"><span class="text-slate-700">Tue 16 Jun · P5 Math</span><span class="text-xs text-emerald-600">✔ 4:22pm · app</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-4 text-xs text-indigo-900">
+        ℹ️ Check-ins count toward the lesson quota in your billing cycle (currently <span class="font-semibold">7 of 8</span>). The teacher confirms the final attendance.
+      </div>
+    </div>
+
+    <div class="bg-white border-t border-slate-200 grid grid-cols-5 text-center text-[10px]">
+      <a href="home.html" class="py-2.5 text-slate-400"><div class="text-base">🏠</div>Home</a>
+      <a href="checkin.html" class="py-2.5 text-indigo-600 font-semibold"><div class="text-base">📍</div>Check-in</a>
+      <a href="progress.html" class="py-2.5 text-slate-400"><div class="text-base">📈</div>Progress</a>
+      <a href="payments.html" class="py-2.5 text-slate-400"><div class="text-base">💳</div>Payments</a>
+      <a href="announcements.html" class="py-2.5 text-slate-400"><div class="text-base">🔔</div>News</a>
+    </div>
+  </div>
+</body>
+</html>

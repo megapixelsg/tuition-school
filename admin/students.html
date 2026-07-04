@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Students — EduCentre SMS</title>
+  <link rel="stylesheet" href="../assets/tailwind.css" />
+  <script defer src="../assets/app.js"></script>
+</head>
+<body class="bg-slate-100" data-active="students" data-title="Students" data-subtitle="Centralised student master records across all branches">
+<div class="flex min-h-screen">
+  <aside id="sidebar" class="w-60 shrink-0 bg-slate-900 flex flex-col sticky top-0 h-screen"></aside>
+  <div class="flex-1 flex flex-col min-w-0">
+    <header id="topbar" class="sticky top-0 z-20"></header>
+    <main class="p-6 space-y-4">
+
+      <!-- Toolbar -->
+      <div class="bg-white rounded-xl border border-slate-200 p-4 flex flex-wrap items-center gap-3">
+        <div class="relative flex-1 min-w-[220px]">
+          <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">🔎</span>
+          <input type="search" placeholder="Search by name, student ID, parent contact…"
+                 class="w-full pl-9 pr-3 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-200"
+                 onkeydown="if(event.key==='Enter'){proto.toast('Search is visual only in this prototype')}">
+        </div>
+        <select class="text-sm border border-slate-300 rounded-lg px-2.5 py-2 text-slate-600" onchange="proto.toast('Filters are visual only')">
+          <option>All branches</option><option>Bukit Timah</option><option>Tampines</option><option>Woodlands</option>
+        </select>
+        <select class="text-sm border border-slate-300 rounded-lg px-2.5 py-2 text-slate-600" onchange="proto.toast('Filters are visual only')">
+          <option>All levels</option><option>Primary 1–3</option><option>Primary 4–6</option><option>Secondary 1–2</option><option>Secondary 3–4</option>
+        </select>
+        <select class="text-sm border border-slate-300 rounded-lg px-2.5 py-2 text-slate-600" onchange="proto.toast('Filters are visual only')">
+          <option>All statuses</option><option>Active</option><option>Trial</option><option>On hold</option><option>Withdrawn</option>
+        </select>
+        <a href="student-form.html" class="ml-auto text-sm bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg px-4 py-2">+ Add student</a>
+      </div>
+
+      <!-- Directory table -->
+      <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="text-left text-xs text-slate-500 border-b border-slate-200 bg-slate-50">
+                <th class="px-4 py-3 font-medium">Student</th>
+                <th class="px-4 py-3 font-medium">ID</th>
+                <th class="px-4 py-3 font-medium">Branch</th>
+                <th class="px-4 py-3 font-medium">Level / Programme</th>
+                <th class="px-4 py-3 font-medium">Attendance (term)</th>
+                <th class="px-4 py-3 font-medium">Billing</th>
+                <th class="px-4 py-3 font-medium">Status</th>
+                <th class="px-4 py-3"></th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr class="hover:bg-slate-50">
+                <td class="px-4 py-3">
+                  <a href="student-profile.html" class="flex items-center gap-3 group">
+                    <span class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center text-xs font-semibold">CR</span>
+                    <div><div class="font-medium text-slate-800 group-hover:text-indigo-600">Chloe Rahman</div><div class="text-xs text-slate-500">Parent: Mrs. N. Rahman · 9123 4567</div></div>
+                  </a>
+                </td>
+                <td class="px-4 py-3 text-slate-500">ST-2023-0114</td>
+                <td class="px-4 py-3 text-slate-600">Bukit Timah</td>
+                <td class="px-4 py-3 text-slate-600">P5 · Math + Science</td>
+                <td class="px-4 py-3 text-slate-600">96%</td>
+                <td class="px-4 py-3"><span class="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">Paid</span></td>
+                <td class="px-4 py-3"><span class="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">Active</span></td>
+                <td class="px-4 py-3 text-right"><a href="student-profile.html" class="text-xs text-indigo-600 hover:underline">View →</a></td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="px-4 py-3">
+                  <a href="student-profile.html" class="flex items-center gap-3 group">
+                    <span class="w-8 h-8 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs font-semibold">MT</span>
+                    <div><div class="font-medium text-slate-800 group-hover:text-indigo-600">Marcus Tan</div><div class="text-xs text-slate-500">Parent: Mr. D. Tan · 9876 1122</div></div>
+                  </a>
+                </td>
+                <td class="px-4 py-3 text-slate-500">ST-2021-0067</td>
+                <td class="px-4 py-3 text-slate-600">Tampines</td>
+                <td class="px-4 py-3 text-slate-600">Sec 2 · Math</td>
+                <td class="px-4 py-3 text-slate-600">88%</td>
+                <td class="px-4 py-3"><span class="text-xs px-2 py-0.5 rounded-full bg-rose-100 text-rose-700">Overdue</span></td>
+                <td class="px-4 py-3"><span class="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">Active</span></td>
+                <td class="px-4 py-3 text-right"><a href="student-profile.html" class="text-xs text-indigo-600 hover:underline">View →</a></td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="px-4 py-3">
+                  <a href="student-profile.html" class="flex items-center gap-3 group">
+                    <span class="w-8 h-8 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center text-xs font-semibold">AL</span>
+                    <div><div class="font-medium text-slate-800 group-hover:text-indigo-600">Aisyah Lim</div><div class="text-xs text-slate-500">Parent: Mdm. S. Lim · 8321 9987</div></div>
+                  </a>
+                </td>
+                <td class="px-4 py-3 text-slate-500">ST-2024-0203</td>
+                <td class="px-4 py-3 text-slate-600">Woodlands</td>
+                <td class="px-4 py-3 text-slate-600">P3 · English</td>
+                <td class="px-4 py-3 text-slate-600">100%</td>
+                <td class="px-4 py-3"><span class="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">Paid</span></td>
+                <td class="px-4 py-3"><span class="text-xs px-2 py-0.5 rounded-full bg-sky-100 text-sky-700">Trial</span></td>
+                <td class="px-4 py-3 text-right"><a href="student-profile.html" class="text-xs text-indigo-600 hover:underline">View →</a></td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="px-4 py-3">
+                  <a href="student-profile.html" class="flex items-center gap-3 group">
+                    <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-semibold">DK</span>
+                    <div><div class="font-medium text-slate-800 group-hover:text-indigo-600">Dhruv Kumar</div><div class="text-xs text-slate-500">Parent: Mrs. P. Kumar · 9455 7810</div></div>
+                  </a>
+                </td>
+                <td class="px-4 py-3 text-slate-500">ST-2019-0021</td>
+                <td class="px-4 py-3 text-slate-600">Bukit Timah</td>
+                <td class="px-4 py-3 text-slate-600">Sec 4 · Physics + Math</td>
+                <td class="px-4 py-3 text-slate-600">92%</td>
+                <td class="px-4 py-3"><span class="text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-700">Due 15 Jul</span></td>
+                <td class="px-4 py-3"><span class="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">Active</span></td>
+                <td class="px-4 py-3 text-right"><a href="student-profile.html" class="text-xs text-indigo-600 hover:underline">View →</a></td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="px-4 py-3">
+                  <a href="student-profile.html" class="flex items-center gap-3 group">
+                    <span class="w-8 h-8 rounded-full bg-sky-100 text-sky-700 flex items-center justify-center text-xs font-semibold">GO</span>
+                    <div><div class="font-medium text-slate-800 group-hover:text-indigo-600">Grace Ong</div><div class="text-xs text-slate-500">Parent: Mr. K. Ong · 9010 3345</div></div>
+                  </a>
+                </td>
+                <td class="px-4 py-3 text-slate-500">ST-2022-0148</td>
+                <td class="px-4 py-3 text-slate-600">Tampines</td>
+                <td class="px-4 py-3 text-slate-600">P6 · Math + English</td>
+                <td class="px-4 py-3 text-slate-600">79% <span title="Attendance below 80%" class="text-amber-600">⚠</span></td>
+                <td class="px-4 py-3"><span class="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">Paid</span></td>
+                <td class="px-4 py-3"><span class="text-xs px-2 py-0.5 rounded-full bg-slate-200 text-slate-600">On hold</span></td>
+                <td class="px-4 py-3 text-right"><a href="student-profile.html" class="text-xs text-indigo-600 hover:underline">View →</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="px-4 py-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+          <span>Showing 5 of 482 students</span>
+          <div class="flex gap-1">
+            <button class="px-2.5 py-1 border border-slate-200 rounded-md hover:bg-slate-50" onclick="proto.stub(event)">‹</button>
+            <button class="px-2.5 py-1 border border-indigo-500 bg-indigo-50 text-indigo-600 rounded-md">1</button>
+            <button class="px-2.5 py-1 border border-slate-200 rounded-md hover:bg-slate-50" onclick="proto.stub(event)">2</button>
+            <button class="px-2.5 py-1 border border-slate-200 rounded-md hover:bg-slate-50" onclick="proto.stub(event)">3</button>
+            <button class="px-2.5 py-1 border border-slate-200 rounded-md hover:bg-slate-50" onclick="proto.stub(event)">›</button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

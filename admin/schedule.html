@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schedule &amp; Classes — EduCentre SMS</title>
+  <link rel="stylesheet" href="../assets/tailwind.css" />
+  <script defer src="../assets/app.js"></script>
+</head>
+<body class="bg-slate-100" data-active="schedule" data-title="Schedule &amp; Classes" data-subtitle="Class scheduling by branch, room and teacher">
+<div class="flex min-h-screen">
+  <aside id="sidebar" class="w-60 shrink-0 bg-slate-900 flex flex-col sticky top-0 h-screen"></aside>
+  <div class="flex-1 flex flex-col min-w-0">
+    <header id="topbar" class="sticky top-0 z-20"></header>
+    <main class="p-6 space-y-4">
+
+      <div class="bg-white rounded-xl border border-slate-200 p-4 flex flex-wrap items-center gap-3">
+        <div class="flex items-center gap-2">
+          <button class="px-2.5 py-1.5 text-sm border border-slate-300 rounded-lg text-slate-600 hover:bg-slate-50" onclick="proto.stub(event)">‹</button>
+          <span class="text-sm font-medium text-slate-800">Week of 29 Jun – 5 Jul 2026</span>
+          <button class="px-2.5 py-1.5 text-sm border border-slate-300 rounded-lg text-slate-600 hover:bg-slate-50" onclick="proto.stub(event)">›</button>
+        </div>
+        <select class="text-sm border border-slate-300 rounded-lg px-2.5 py-1.5 text-slate-600" onchange="proto.toast('Filters are visual only')">
+          <option>Bukit Timah Centre</option><option>Tampines Centre</option><option>Woodlands Centre</option>
+        </select>
+        <select class="text-sm border border-slate-300 rounded-lg px-2.5 py-1.5 text-slate-600" onchange="proto.toast('Filters are visual only')">
+          <option>All teachers</option><option>Mr. Desmond Ho</option><option>Ms. Priya Nair</option><option>Mdm. Chen Li</option>
+        </select>
+        <button class="ml-auto text-sm bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg px-4 py-2" onclick="proto.stub(event)">+ New class</button>
+      </div>
+
+      <!-- Weekly timetable -->
+      <div class="bg-white rounded-xl border border-slate-200 overflow-x-auto">
+        <table class="w-full text-xs min-w-[900px]">
+          <thead>
+            <tr class="border-b border-slate-200 bg-slate-50 text-slate-500">
+              <th class="px-3 py-2.5 text-left font-medium w-20">Time</th>
+              <th class="px-3 py-2.5 text-left font-medium">Mon 29</th>
+              <th class="px-3 py-2.5 text-left font-medium">Tue 30</th>
+              <th class="px-3 py-2.5 text-left font-medium">Wed 1</th>
+              <th class="px-3 py-2.5 text-left font-medium">Thu 2</th>
+              <th class="px-3 py-2.5 text-left font-medium">Fri 3</th>
+              <th class="px-3 py-2.5 text-left font-medium">Sat 4</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 align-top">
+            <tr>
+              <td class="px-3 py-2 text-slate-400">10:00</td>
+              <td class="px-2 py-2"></td><td class="px-2 py-2"></td><td class="px-2 py-2"></td><td class="px-2 py-2"></td><td class="px-2 py-2"></td>
+              <td class="px-2 py-2">
+                <a href="attendance.html" class="block rounded-lg border-l-4 border-[#2a78d6] bg-blue-50 p-2 hover:shadow">
+                  <div class="font-medium text-slate-800">P5 Science</div>
+                  <div class="text-slate-500">Ms. P. Nair · Rm 2 · 14/16</div>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td class="px-3 py-2 text-slate-400">14:00</td>
+              <td class="px-2 py-2"></td><td class="px-2 py-2"></td>
+              <td class="px-2 py-2">
+                <a href="attendance.html" class="block rounded-lg border-l-4 border-[#1baf7a] bg-emerald-50 p-2 hover:shadow">
+                  <div class="font-medium text-slate-800">Sec 2 Math</div>
+                  <div class="text-slate-500">Mdm. Chen Li · Rm 1 · 11/12</div>
+                </a>
+              </td>
+              <td class="px-2 py-2"></td>
+              <td class="px-2 py-2">
+                <a href="attendance.html" class="block rounded-lg border-l-4 border-[#1baf7a] bg-emerald-50 p-2 hover:shadow">
+                  <div class="font-medium text-slate-800">Sec 4 Physics</div>
+                  <div class="text-slate-500">Mr. D. Ho · Rm 3 · 9/12</div>
+                </a>
+              </td>
+              <td class="px-2 py-2"></td>
+            </tr>
+            <tr>
+              <td class="px-3 py-2 text-slate-400">16:30</td>
+              <td class="px-2 py-2">
+                <a href="attendance.html" class="block rounded-lg border-l-4 border-[#eb6834] bg-orange-50 p-2 hover:shadow">
+                  <div class="font-medium text-slate-800">P3 English</div>
+                  <div class="text-slate-500">Ms. P. Nair · Rm 2 · 10/14</div>
+                </a>
+              </td>
+              <td class="px-2 py-2">
+                <a href="attendance.html" class="block rounded-lg border-l-4 border-[#2a78d6] bg-blue-50 p-2 hover:shadow">
+                  <div class="font-medium text-slate-800">P5 Math</div>
+                  <div class="text-slate-500">Mr. D. Ho · Rm 1 · 15/16</div>
+                </a>
+              </td>
+              <td class="px-2 py-2"></td>
+              <td class="px-2 py-2">
+                <a href="attendance.html" class="block rounded-lg border-l-4 border-[#2a78d6] bg-blue-50 p-2 hover:shadow">
+                  <div class="font-medium text-slate-800">P6 Math</div>
+                  <div class="text-slate-500">Mdm. Chen Li · Rm 1 · 16/16 <span class="text-rose-600 font-medium">FULL</span></div>
+                </a>
+              </td>
+              <td class="px-2 py-2">
+                <a href="attendance.html" class="block rounded-lg border-l-4 border-[#eb6834] bg-orange-50 p-2 hover:shadow">
+                  <div class="font-medium text-slate-800">P6 English</div>
+                  <div class="text-slate-500">Ms. P. Nair · Rm 2 · 12/14</div>
+                </a>
+              </td>
+              <td class="px-2 py-2"></td>
+            </tr>
+            <tr>
+              <td class="px-3 py-2 text-slate-400">19:00</td>
+              <td class="px-2 py-2"></td>
+              <td class="px-2 py-2"></td>
+              <td class="px-2 py-2">
+                <a href="attendance.html" class="block rounded-lg border-l-4 border-[#4a3aa7] bg-violet-50 p-2 hover:shadow">
+                  <div class="font-medium text-slate-800">Sec 3 A-Math</div>
+                  <div class="text-slate-500">Mr. D. Ho · Rm 3 · 8/12</div>
+                </a>
+              </td>
+              <td class="px-2 py-2"></td>
+              <td class="px-2 py-2">
+                <a href="attendance.html" class="block rounded-lg border-l-4 border-[#4a3aa7] bg-violet-50 p-2 hover:shadow">
+                  <div class="font-medium text-slate-800">Sec 3 Chemistry</div>
+                  <div class="text-slate-500">Ms. P. Nair · Rm 2 · 10/12</div>
+                </a>
+              </td>
+              <td class="px-2 py-2"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Class detail / roster preview -->
+      <div class="bg-white rounded-xl border border-slate-200 p-5">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="font-semibold text-slate-900">Class detail — P5 Math (Tue 4:30pm, Bukit Timah Rm 1)</h2>
+            <p class="text-xs text-slate-500">Teacher: Mr. Desmond Ho · capacity 16 · 15 enrolled · click a class block above to open its roster</p>
+          </div>
+          <a href="attendance.html" class="text-sm border border-slate-300 rounded-lg px-3 py-2 text-slate-700 hover:bg-slate-50">Open attendance →</a>
+        </div>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="text-xs px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">Chloe Rahman</span>
+          <span class="text-xs px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">Ethan Wong</span>
+          <span class="text-xs px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">Grace Ong</span>
+          <span class="text-xs px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">Aiden Koh</span>
+          <span class="text-xs px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">Nur Insyirah</span>
+          <span class="text-xs px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">Ryan Lee</span>
+          <span class="text-xs px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">+ 9 more</span>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>
